@@ -1,0 +1,7 @@
+{
+  "name": "Inovação IEL",
+  "image": "heroku/php",
+  "addons": [
+    "heroku-mysql"
+  ]
+}

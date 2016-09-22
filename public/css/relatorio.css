@@ -1,0 +1,424 @@
+.light-background {
+  background: rgba(96, 170, 182, 0.64);
+}
+
+.sidebar {
+  background: #EFF7F8;
+  color: #11627F;
+  padding-top: 25px;
+  text-align: center;
+}
+
+.sidebar .sidebar-title {
+  font-weight: bold;
+  font-size: 7rem;
+  line-height: 5rem;
+}
+
+.sidebar .sidebar-subtitle {
+  text-transform: uppercase;
+  padding: 5px 10px 0 0;
+  border-top: 3px solid;
+  font-size: 1.2rem;
+}
+
+.sidebar .sidebar-description {
+  padding: 1rem 0 0 1.2rem;
+  font-size: 1.3em;
+}
+
+.progress-label, .progress-icon {
+  display: inline-block;
+}
+
+.progress-label {
+  padding-right: 20px;
+  width: 60%;
+  text-align: right;
+  text-transform: uppercase;
+  vertical-align: baseline;
+}
+
+.progress-icon {
+  background: rgba(255, 255, 255, 0.5);
+  width: 100px;
+  height: 100px;
+  font-size: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+}
+
+.progress-icon.with-border {
+  border: 5px solid #48737F;
+  width: 95px;
+  height: 95px;
+  box-sizing: content-box;
+}
+
+.progress-bar-container {
+  background: rgba(100, 171, 182, 0.4);
+  border-radius: 25px;
+}
+
+.progress-bar {
+  background: #EEF6F7;
+  border-radius: 25px;
+  color: #11627F;
+  text-align: right;
+  padding: 20px 15px 25px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.progress-bar.danger {
+  background: #DE9776;
+  color: #FFFFFF;
+}
+
+.progress-description {
+  /*color: #0A394A;*/
+  color: #FFF;
+  padding: 15px;
+  text-transform: uppercase;
+  text-align: justify;
+}
+
+.graph-container {
+  margin-bottom: 20px;
+}
+
+.graph-outer {
+  background: rgba(255, 255, 255, 0.5);
+  width: 110px;
+  height: 110px;
+  font-size: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  display: inline-block;
+}
+
+.graph-inner {
+  width: 80px;
+  height: 80px;
+  font-size: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80px;
+  display: inline-block;
+  border: 3px solid #FFFFFF;
+  position: relative;
+  top: 15px;
+}
+
+.graph {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  top: -8px;
+  left: -8px;
+}
+
+.graph-title {
+  text-transform: uppercase;
+  display: table;
+  min-height: 110px;
+}
+
+.graph-title span {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.graph-percentage {
+  min-height: 110px;
+  width: 100%;
+  display: table;
+}
+
+.graph-percentage-label {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
+
+.graph-percentage-label > span {
+  position: relative;
+  top: -5px;
+}
+
+.graph-percentage-label > span::after {
+  content: "";
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.graph-percentage-line {
+  position: absolute;
+  height: 1px;
+  width: 90%;
+  top: 43px;
+  left: 20px;
+}
+
+.text-right .graph-percentage-line {
+  right: 19px;
+  left: inherit;
+}
+
+.solution-box {
+  background: rgba(238, 151, 112, 0.5);
+  margin: 0 5px 40px;
+}
+
+.solution-box-title {
+  background: #EE9770;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 90%;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+
+.solution-box-body  {
+  font-size: 85%;
+  padding: 30px 15px;
+}
+
+#logo-medium {
+  padding-top:10px;
+  text-align: right;
+}
+
+#logo-small-only {
+  padding-top:10px;
+  text-align: center;
+}
+
+.title{
+  margin-top:40px;
+}
+
+#title-label h1 {
+  font-size: 5rem;
+  letter-spacing: -5px;
+  margin: 0;
+}
+
+#title-label h2 {
+  font-size: 3.1rem;
+  letter-spacing: -2px;
+  margin: -20px 0 0;
+}
+
+#title-label h3 {
+  font-size: 2.05rem;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+#title-level {
+  font-size: 16rem;
+  line-height: 14rem;
+  border-bottom: 10px solid #EE9770;
+  margin-top: -40px;
+  color: #EE9770;
+  text-align: center;
+}
+
+#graph {
+  margin-top: 50px;
+}
+
+#graph-description {
+  font-size: 1.2rem;
+  padding: 0 5%;
+}
+
+#progresses {
+  padding-top: 25px;
+}
+
+#graphs {
+  padding-top: 25px;
+}
+
+#solutions {
+  padding-top: 80px;
+}
+
+#solutions-title {
+  text-transform: uppercase;
+}
+
+#solutions-title h1 {
+  font-size: 4.9rem;
+  margin: 0;
+  line-height: 110%;
+}
+
+#solutions-title h2 {
+  font-size: 3.3rem;
+  text-align-last: justify;
+  line-height: 110%;
+}
+
+#solutions-title h3 {
+  font-size: 3.5rem;
+  text-align-last: justify;
+  line-height: 110%;
+}
+
+#solutions-title h3 em {
+  font-style: normal;
+  border-bottom: 5px solid #EE9770;
+  color: #EE9770;
+}
+
+#solutions-title p {
+  padding-top: 2em;
+  font-size: 1.3rem;
+}
+
+#solutions-graph {
+  margin-top: -12.5em;
+}
+
+#solutions-graph img {
+  max-width: 800px;
+  margin-left:100px;
+}
+
+#solutions-boxes {
+  margin-top: 100px;
+}
+
+#book-a-visit {
+  margin-top: 50px;
+}
+
+#book-a-visit h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+#book-a-visit h1 em {
+  font-style: normal;
+  border-bottom: 3px solid #EE9770;
+  color: #EE9770;
+}
+
+#book-a-visit h2 {
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+#book-a-visit h3 {
+  margin-bottom: 0;
+  font-size: 1.8rem;
+}
+
+.b-area {
+  margin:75px 0px 75px 0px;
+}
+
+#footer {
+  /*margin-top: 200px;*/
+}
+
+
+/* Small screens */
+@media only screen { } /* Define mobile styles */
+
+@media  (max-width: 40em) {
+
+  #first-title {
+    margin-top: 20px;
+  }
+  #title-level {
+    font-size: 9rem;
+    line-height: 8rem;
+    margin-top: 0px;
+    text-align: center;
+  }
+  #logo {
+
+    }
+
+  #title-label {
+    margin-top: 20px;
+  }
+
+  #title-label h1 {
+    font-size: 2.8em;
+    letter-spacing: -3px;
+    margin-bottom: 10px
+  }
+  #title-label h2 {
+    font-size: 1.8em;
+  }
+  #title-label h3 {
+    font-size: 1.24em;
+  }
+  .b-area {
+    margin:0px 0px 0px 0px;
+  }
+
+  .sidebar {
+    padding-right: 25px;
+  }
+
+  #progresses {
+    padding-top:0px;
+  }
+
+  .progress-label {
+    text-align: center;
+  }
+
+  .progress-title {
+    margin: 20px 0px;
+  }
+
+  .graph-title {
+    /*text-align: center*/
+  }
+
+} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+
+
+/* Medium screens*/
+@media only screen and (min-width: 40.063em) { } /* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  #title-label{
+    text-align: right;
+    }
+  #title-label-right {
+    text-align: left;
+    }
+  } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+/* Large screens*/
+@media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+
+/* XLarge screens*/
+@media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) { } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+/* XXLarge screens*/
+@media only screen and (min-width: 120.063em) { } /* min-width 1921px, xxlarge screens */
