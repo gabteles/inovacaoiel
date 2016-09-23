@@ -11,9 +11,16 @@ return [
 
         // Monolog settings
         'logger' => [
-            'name' => 'slim-app',
+            'name' => 'inovacaoiel',
             'path' => __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
         ],
+
+        // ORM Settings
+        'orm' => [
+            'url' => isset($_ENV['CLEARDB_DATABASE_URL']) ?
+                $_ENV['CLEARDB_DATABASE_URL'] :
+                'mysql://root:12345678@0.0.0.0:32768/inovacaoiel?reconnect=true'
+        ]
     ],
 ];

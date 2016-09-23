@@ -17,6 +17,9 @@ session_start();
 $settings = require __DIR__ . '/../src/settings.php';
 $app = new \Slim\App($settings);
 
+// Util functions
+require __DIR__ . '/../src/utils.php';
+
 // Set up dependencies
 require __DIR__ . '/../src/dependencies.php';
 
@@ -25,6 +28,9 @@ require __DIR__ . '/../src/middleware.php';
 
 // Register routes
 require __DIR__ . '/../src/routes.php';
+
+// Database migrations
+require_once __DIR__ . '/../src/migrations.php';
 
 // Run app
 $app->run();
