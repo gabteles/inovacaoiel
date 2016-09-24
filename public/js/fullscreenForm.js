@@ -402,6 +402,10 @@
 	 * hides a control
 	 */
 	FForm.prototype._hideCtrl = function( ctrl ) {
+		if (ctrl == null) {
+			return;
+		}
+
 		classie.remove( ctrl, 'fs-show' );
 	}
 

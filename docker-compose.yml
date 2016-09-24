@@ -1,18 +1,13 @@
-web:
-  build: .
-  command: 'bash -c ''vendor/bin/heroku-php-apache2 web/'''
-  working_dir: /app/user
+database:
+  image: mysql
   environment:
-    PORT: 8080
+    MYSQL_ROOT_PASSWORD: '12345678'
   ports:
-    - '8080:8080'
-shell:
-  build: .
-  command: bash
-  working_dir: /app/user
-  environment:
-    PORT: 8080
+    - '3306:3306'
+
+dba:
+  image: phpmyadmin/phpmyadmin
   ports:
-    - '8080:8080'
-  volumes:
-    - '.:/app/user'
+    - '8080:80'
+  links:
+    - database:db

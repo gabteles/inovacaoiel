@@ -10,7 +10,7 @@ class AddFormSubmit extends Migration {
     $sql = "
       CREATE TABLE `form_submit` (
         `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-        `url` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+        `url` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
         `created_at` int(10) unsigned NOT NULL,
         PRIMARY KEY (`id`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
