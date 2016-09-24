@@ -3,5 +3,8 @@
   "image": "heroku/php",
   "addons": [
     "heroku-mysql"
-  ]
+  ],
+  "scripts": {
+    "postdeploy": "vendor/bin/phpmig migrate"
+  }
 }
