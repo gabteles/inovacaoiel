@@ -41,18 +41,18 @@
 
 .progress-icon {
   background: rgba(255, 255, 255, 0.5);
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   font-size: 3rem;
   border-radius: 50%;
   text-align: center;
-  line-height: 100px;
+  line-height: 90px;
 }
 
 .progress-icon.with-border {
   border: 5px solid #48737F;
-  width: 95px;
-  height: 95px;
+  width: 80px;
+  height: 80px;
   box-sizing: content-box;
 }
 
@@ -394,6 +394,43 @@
     /*text-align: center*/
   }
 
+#solutions-title h1 {
+  font-size: 2.6rem;
+  text-align: center;
+  margin: 0;
+  line-height: 110%;
+}
+
+#solutions-title h2 {
+  font-size: 2.6rem;
+  line-height: 110%;
+  text-align:center;
+    text-align-last:center;
+  margin: 0px;
+}
+
+#solutions-title h3 {
+  font-size: 2.6rem;
+  text-align: center;
+  line-height: 110%;
+      text-align-last:center;
+}
+
+#solutions-graph {
+  margin-top: 0px;
+  text-align: center;
+}
+
+#solutions-graph img {
+  max-width: 90%;
+  margin-left:0px;
+
+}
+
+#book-a-visit {
+  text-align: center
+}
+
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
 
@@ -408,6 +445,65 @@
   #title-label-right {
     text-align: left;
     }
+
+  #title-label h1 {
+    font-size: 2.8em;
+    letter-spacing: -3px;
+    margin-bottom: 10px
+  }
+  #title-label h2 {
+    font-size: 1.8em;
+  }
+  #title-label h3 {
+    font-size: 1.24em;
+  }
+
+.progress-label {
+    padding-bottom: 35px;
+    /* margin-top: -3px; */
+    line-height: 201%;
+
+    }
+
+  #solutions-title h1 {
+    font-size: 2.6rem;
+    text-align: center;
+    margin: 0;
+    line-height: 110%;
+  }
+
+  #solutions-title h2 {
+    font-size: 2.6rem;
+    line-height: 110%;
+    text-align:center;
+    text-align-last:center;
+    margin: 0px;
+  }
+
+  #solutions-title h3 {
+    font-size: 2.6rem;
+    text-align: center;
+    text-align-last:center;
+    line-height: 110%;
+  }
+  #solutions-graph {
+  margin-top: 0px;
+  text-align: center;
+}
+
+#solutions-graph img {
+  max-width: 90%;
+  margin-left:0px;
+
+}
+
+  #title-level {
+    font-size: 9rem;
+    line-height: 8rem;
+    margin-top: -23px;
+    text-align: center;
+  }
+
   } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 /* Large screens*/
