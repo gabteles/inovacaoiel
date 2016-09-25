@@ -88,7 +88,6 @@
     bindFormLinks();
   }
 
-    console.log(selfUrl)
   if (window.attachEvent) {
     window.attachEvent('onload', onPageLoad);
   } else {
