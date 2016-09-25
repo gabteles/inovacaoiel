@@ -52,5 +52,5 @@ $app->post('/relatorio', function ($request, $response, $args) {
 
   $this->db->commit();
 
-
+  return $response->withStatus(302)->withHeader('Location', "/relatorio/{$form->url}");
 });
