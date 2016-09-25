@@ -1,12 +1,15 @@
 #__iel-wrapper {
+  position: fixed;
   overflow: hidden;
-  transition: 3s background;
   background: rgba(0,0,0,0);
   display: block !important;
   top: 0;
   left: 0;
   right: 100%;
   bottom: 100%;
+  transition-duration: 3s, 0s, 0s;
+  transition-property: background, left, bottom;
+  transition-delay: 0s, 3s, 3s;
 }
 
 #__iel-wrapper #__iel-frame-container {
@@ -25,10 +28,12 @@
 }
 
 #__iel-wrapper.__iel-wrapper--open {
-  position: fixed;
-  bottom: 0;
-  right: 0;
   background: rgba(0,0,0,0.6);
+  right: 0;
+  bottom: 0;
+  transition-duration: 3s, 0s, 0s;
+  transition-property: background, left, bottom;
+  transition-delay: 0s, 0s, 0s;
 }
 
 #__iel-wrapper.__iel-wrapper--open #__iel-frame-container {
@@ -48,6 +53,7 @@
   right: 0px;
   cursor: pointer;
   color: #00A59E;
+  transition: 1.5s right;
 }
 
 #__iel-wrapper.__iel-wrapper--open #__iel-close-button {
