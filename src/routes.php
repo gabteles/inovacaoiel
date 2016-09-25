@@ -9,6 +9,14 @@ $app->get('/', function ($request, $response, $args) {
   return $this->renderer->render($response, 'index.phtml');
 });
 
+$app->get('/relatorio[/{id}]', function($request, $response, $args) {
+  if (!isset($args['id'])) {
+    return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
+  }
+
+  return $this->renderer->render($response, 'relatorio.phtml', []);
+});
+
 $app->post('/relatorio', function ($request, $response, $args) {
   $parsedBody = $request->getParsedBody();
 
@@ -44,5 +52,5 @@ $app->post('/relatorio', function ($request, $response, $args) {
 
   $this->db->commit();
 
-  return $this->renderer->render($response, 'relatorio.phtml', []);
+
 });
