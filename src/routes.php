@@ -14,6 +14,17 @@ $app->get('/relatorio[/{id}]', function($request, $response, $args) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
+  // Initialize DB
+  $this->db;
+
+  $form = Model::factory('FormSubmit')
+    ->where('id', $args['id'])
+    ->find_one();
+
+  if ($form == null) {
+    return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
+  }
+
   return $this->renderer->render($response, 'relatorio.phtml', []);
 });
 
