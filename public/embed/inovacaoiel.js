@@ -26,7 +26,8 @@
     var html = ' \
       <div id="__iel-wrapper" style="display: none"> \
         <div id="__iel-frame-container"> \
-          <iframe src="' + selfUrl + '/../" \
+          <iframe id="__iel-frame" src="' + selfUrl + '/../"></iframe> \
+          <div id="__iel-close-button">&times;</div> \
         </div> \
       </div> \
     ';
@@ -34,20 +35,32 @@
     var div = document.createElement('div');
     div.innerHTML = html;
     document.body.appendChild(div);
+    bindFormElements();
   }
 
   function appendCssToHead() {
     var link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
     link.setAttribute('type', 'text/css');
-    // TODO: Change
     link.setAttribute('href', selfUrl + '/inovacaoiel.css');
     document.getElementsByTagName('head')[0].appendChild(link);
   }
 
-  function onLinkClick() {
+  function showForm() {
     var wrapper = document.getElementById('__iel-wrapper');
     wrapper.classList = '__iel-wrapper--open';
+  }
+
+  function resetFormContents() {
+    document.getElementById('__iel-frame').src = document.getElementById('__iel-frame').src
+  }
+
+  function bindFormElements() {
+    var closeButton = document.getElementById('__iel-close-button');
+    closeButton.onclick = function() {
+      hideForm();
+      resetFormContents();
+    }
   }
 
   function bindFormLinks() {
@@ -56,10 +69,10 @@
         var currentOnClick = element.onclick;
         element.onclick = function(evt) {
           currentOnClick(evt);
-          onLinkClick(evt);
+          showForm(evt);
         };
       } else {
-        element.onclick = onLinkClick;
+        element.onclick = showForm;
       }
     });
   }

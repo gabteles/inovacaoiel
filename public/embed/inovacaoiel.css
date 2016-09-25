@@ -28,9 +28,28 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.6);
 }
 
 #__iel-wrapper.__iel-wrapper--open #__iel-frame-container {
   left: 0;
+}
+
+#__iel-wrapper #__iel-close-button {
+  position: absolute;
+  top: 5px;
+  background: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+  font-size: 25px;
+  right: 0px;
+  cursor: pointer;
+  color: #00A59E;
+}
+
+#__iel-wrapper.__iel-wrapper--open #__iel-close-button {
+  right: -35px;
 }
