@@ -5,11 +5,19 @@ require __DIR__ . '/models/question_response.php';
 
 // Routes
 
+/*----------------------------------------------------------------------------*
+ * Index route. Shows form.                                                   *
+ *----------------------------------------------------------------------------*/
+
 $app->get('/', function ($request, $response, $args) {
   return $this->renderer->render($response, 'index.phtml');
 });
 
+/*----------------------------------------------------------------------------*
+ * Report route. Shows report to an form submission.                          *
+ *----------------------------------------------------------------------------*/
 $app->get('/relatorio[/{id}]', function($request, $response, $args) {
+  // Error if we haven't any ID
   if (!isset($args['id'])) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
@@ -17,51 +25,61 @@ $app->get('/relatorio[/{id}]', function($request, $response, $args) {
   // Initialize DB
   $this->db;
 
+  // Seach DB for new submits
   $form = Model::factory('FormSubmit')
     ->where('id', $args['id'])
     ->find_one();
 
+  // Error if we found nothing
   if ($form == null) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
+  // Render report
   return $this->renderer->render($response, 'relatorio.phtml', []);
 });
 
+
+/*----------------------------------------------------------------------------*
+ * Form submission route.                                                     *
+ *----------------------------------------------------------------------------*/
 $app->post('/relatorio', function ($request, $response, $args) {
+  // Get request body
   $parsedBody = $request->getParsedBody();
 
+  // Initialize transaction
   $this->db->beginTransaction();
 
-  $this->logger->debug("Creating FORM: ");
+  // Create form entity
   $form = Model::factory('FormSubmit')->create();
   $form->url = uniqid('');
   $form->created_at = time();
   $form->save();
-  $this->logger->debug("Form {$form->id}");
 
+  // For each response
   for ($i = 1 ; $i <= 25; $i++) {
     $fieldName = "q$i";
-    $this->logger->debug("Processing $fieldName");
 
+    // Error if the response
     if (!isset($parsedBody[$fieldName])) {
-      $this->logger->debug("Field $fieldName not found");
       $this->db->rollBack();
-      return $this->renderer->render($response, 'index.phtml');
+      $errorArgs = [];
+      return $this->renderer->render($response, 'index.phtml', $errorArgs);
     }
 
-    $response_value = $parsedBody[$fieldName];
-
-    $this->logger->debug("Creating Question Response: ");
+    // Create response to this question
     $res = Model::factory('QuestionResponse')->create();
     $res->question_number = $i;
     $res->form_submit_id = $form->id;
-    $res->response = $response_value;
+    $res->response = $parsedBody[$fieldName];
     $res->save();
-    $this->logger->debug("Question Response {$res->id}");
   }
 
+  // Commit
   $this->db->commit();
 
-  return $response->withStatus(302)->withHeader('Location', "/relatorio/{$form->url}");
+  // Redirect to report URL
+  return $response
+    ->withStatus(302)
+    ->withHeader('Location', "/relatorio/{$form->url}");
 });
