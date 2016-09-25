@@ -51,6 +51,11 @@
     wrapper.classList = '__iel-wrapper--open';
   }
 
+  function hideForm() {
+    var wrapper = document.getElementById('__iel-wrapper');
+    wrapper.classList = '';
+  }
+
   function resetFormContents() {
     document.getElementById('__iel-frame').src = document.getElementById('__iel-frame').src
   }
