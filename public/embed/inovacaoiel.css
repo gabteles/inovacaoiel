@@ -10,6 +10,7 @@
   transition-duration: 3s, 0s, 0s;
   transition-property: background, left, bottom;
   transition-delay: 0s, 3s, 3s;
+  z-index: 9999999;
 }
 
 #__iel-wrapper #__iel-frame-container {
