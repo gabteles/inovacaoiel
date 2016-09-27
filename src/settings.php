@@ -21,6 +21,23 @@ return [
             'url' => isset($_ENV['CLEARDB_DATABASE_URL']) ?
                 $_ENV['CLEARDB_DATABASE_URL'] :
                 'mysql://root:12345678@127.0.0.1:3306/inovacaoiel?reconnect=true'
+        ],
+
+        // Mailer Settings
+        'mailer' => [
+            'debug' => 'true',
+
+            'host' => 'smtp.gmail.com',
+            'smtp-auth' => true,
+            'username' => 'email',
+            'password' => 'secret',
+            'smtp-secure' => 'tls',
+            'port' => 587,
+
+            'mail-from' => 'sample@iel.com.br',
+            'mail-from-name' => 'Inovação IEL',
+            'reply-to' => 'sample@iel.com.br',
+            'reply-to-name' => 'Inovação IEL'
         ]
     ],
 ];

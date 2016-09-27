@@ -16,9 +16,9 @@ $app->get('/', function ($request, $response, $args) {
 /*----------------------------------------------------------------------------*
  * Report route. Shows report to an form submission.                          *
  *----------------------------------------------------------------------------*/
-$app->get('/relatorio[/{id}]', function($request, $response, $args) {
+$app->get('/relatorio[/{url}]', function($request, $response, $args) {
   // Error if we haven't any ID
-  if (!isset($args['id'])) {
+  if (!isset($args['url'])) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
@@ -27,7 +27,7 @@ $app->get('/relatorio[/{id}]', function($request, $response, $args) {
 
   // Seach DB for new submits
   $form = Model::factory('FormSubmit')
-    ->where('id', $args['id'])
+    ->where('url', $args['url'])
     ->find_one();
 
   // Error if we found nothing
@@ -77,6 +77,24 @@ $app->post('/relatorio', function ($request, $response, $args) {
 
   // Commit
   $this->db->commit();
+
+  // Send email
+  $name = $parsedBody['q21'];
+  $email = $parsedBody['q22'];
+  $basePath = siteURL();
+  $emailBody = $this->renderer->fetch('template-email.phtml', [
+    'name' => $name,
+    'formUrl' => "{$basePath}/relatorio/{$form->url}"
+  ]);
+
+  $mailer = $this->mailer;
+  $mailer->addAddress($email, $name);
+  $mailer->Subject = 'Conheça seu nível de maturidade em gestão da inovação';
+  $mailer->Body = $emailBody;
+
+  if (!$mailer->send()) {
+    $this->logger->error("Erro ao enviar email: {$mailer->ErrorInfo}");
+  }
 
   // Redirect to report URL
   return $response

@@ -5,17 +5,17 @@ $container = $app->getContainer();
 
 // view renderer
 $container['renderer'] = function ($c) {
-    $settings = $c->get('settings')['renderer'];
-    return new Slim\Views\PhpRenderer($settings['template_path']);
+  $settings = $c->get('settings')['renderer'];
+  return new Slim\Views\PhpRenderer($settings['template_path']);
 };
 
 // monolog
 $container['logger'] = function ($c) {
-    $settings = $c->get('settings')['logger'];
-    $logger = new Monolog\Logger($settings['name']);
-    $logger->pushProcessor(new Monolog\Processor\UidProcessor());
-    $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
-    return $logger;
+  $settings = $c->get('settings')['logger'];
+  $logger = new Monolog\Logger($settings['name']);
+  $logger->pushProcessor(new Monolog\Processor\UidProcessor());
+  $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
+  return $logger;
 };
 
 $container['db'] = function ($c) {
@@ -32,4 +32,30 @@ $container['db'] = function ($c) {
   ORM::configure('password', $password);
 
   return ORM::get_db();
+};
+
+$container['mailer'] = function ($c) {
+  $settings = $c->get('settings')['mailer'];
+
+  $mailer = new PHPMailer;
+
+  if ($settings['debug']) {
+    $mailer->Debugoutput = 'html';
+    $mailer->SMTPDebug = 2;
+  }
+
+  $mailer->isSMTP();
+  $mailer->Host = $settings['host'];
+  $mailer->SMTPAuth = $settings['smtp-auth'];
+  $mailer->Username = $settings['username'];
+  $mailer->Password = $settings['password'];
+  $mailer->SMTPSecure = $settings['smtp-secure'];
+  $mailer->Port = $settings['port'];
+
+  $mailer->setFrom($settings['mail-from'], $settings['mail-from-name']);
+  $mailer->addReplyTo($settings['reply-to'], $settings['reply-to-name']);
+  $mailer->isHTML(true);
+  $mailer->CharSet = 'UTF-8';
+
+  return $mailer;
 };

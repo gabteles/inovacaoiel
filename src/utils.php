@@ -1,6 +1,8 @@
 <?php
 
-function endsWith($haystack, $needle) {
-    // search forward starting from end minus needle length characters
-    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+function siteURL() {
+  $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443);
+  $protocol = $isHttps ? "https://" : "http://";
+  $domainName = $_SERVER['HTTP_HOST'];
+  return $protocol . $domainName;
 }
