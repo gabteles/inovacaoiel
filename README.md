@@ -23,6 +23,6 @@ If everything goes right, you should end with:
 ### WAMP/XAMP/MAMP approach
 1. Clone this repository into your public folder (e.g. `/Applications/MAMP/htdocs`)
 2. Use PHPMyAdmin (or other tool you like) to create database (default name: `inovacaoiel`)
-3. Configure database URL in `src/settings.php`
+3. Configure database URL in `src/settings.php` (`mysql://USERNAME:PASSWORD@ADDRESS:PORT/DATABASE_NAME?reconnect=true`)
 4. Install composer dependencies: `composer install`
 5. Migrate database: `vendor/bin/phpmig migrate`
