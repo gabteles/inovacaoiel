@@ -3,7 +3,7 @@
 ## Prerequisites
 - PHP >= 5.6.24
 - [Composer](https://getcomposer.org)
-- [Docker](https://www.docker.com/)
+- [Docker](https://www.docker.com/) or WAMP/LAMP/MAMP
 
 ## Running
 
@@ -20,7 +20,7 @@ If everything goes right, you should end with:
 - MySQL running on `mysql://root:12345678@127.0.0.1:3306/inovacaoiel?reconnect=true`
 - PHPMyAdmin running on http://127.0.0.1:8080
 
-### WAMP/XAMP/MAMP approach
+### WAMP/LAMP/MAMP approach
 1. Clone this repository into your public folder (e.g. `/Applications/MAMP/htdocs`)
 2. Use PHPMyAdmin (or other tool you like) to create database (default name: `inovacaoiel`)
 3. Configure database URL in `src/settings.php` (`mysql://USERNAME:PASSWORD@ADDRESS:PORT/DATABASE_NAME?reconnect=true`)
