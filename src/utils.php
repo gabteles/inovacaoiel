@@ -11,3 +11,10 @@ function calculateAbsoluteScore($questions, $questionNumber) {
   $response = $questions->where('question_number', $questionNumber)->findOne()->response;
   return round(100 * $response / 6.0);
 }
+
+function emailImage($path) {
+  $realPath = __DIR__ . '/../' . $path;
+  $data = base64_encode(file_get_contents($realPath));
+  $mime = mime_content_type($realPath);
+  return "data:{$mime};base64,{$data}";
+}

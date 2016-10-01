@@ -49,6 +49,14 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 /*----------------------------------------------------------------------------*
  * Form submission route.                                                     *
  *----------------------------------------------------------------------------*/
+$app->get('/relatorio-tmp', function ($request, $response, $args) {
+  $basePath = siteURL();
+
+  return $this->renderer->render($response, 'template-email.phtml', [
+    'name' => "João da Silva",
+    'formUrl' => "{$basePath}/relatorio/1234567890"
+  ]);
+});
 $app->post('/relatorio', function ($request, $response, $args) {
   // Get request body
   $parsedBody = $request->getParsedBody();
@@ -98,6 +106,7 @@ $app->post('/relatorio', function ($request, $response, $args) {
   $mailer->Subject = 'Conheça seu nível de maturidade em gestão da inovação';
   $mailer->Body = $emailBody;
 
+  $this->logger->debug("Enviando email para email: {$email} ({$name})");
   if (!$mailer->send()) {
     $this->logger->error("Erro ao enviar email: {$mailer->ErrorInfo}");
   }

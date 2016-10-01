@@ -44,13 +44,17 @@ $container['mailer'] = function ($c) {
     $mailer->SMTPDebug = 2;
   }
 
-  $mailer->isSMTP();
-  $mailer->Host = $settings['host'];
-  $mailer->SMTPAuth = $settings['smtp-auth'];
-  $mailer->Username = $settings['username'];
-  $mailer->Password = $settings['password'];
-  $mailer->SMTPSecure = $settings['smtp-secure'];
-  $mailer->Port = $settings['port'];
+  if ($settings['type'] == 'smtp') {
+    $mailer->isSMTP();
+    $mailer->Host = $settings['host'];
+    $mailer->SMTPAuth = $settings['smtp-auth'];
+    $mailer->Username = $settings['username'];
+    $mailer->Password = $settings['password'];
+    $mailer->SMTPSecure = $settings['smtp-secure'];
+    $mailer->Port = $settings['port'];
+  } else {
+    $mailer->isSendmail();
+  }
 
   $mailer->setFrom($settings['mail-from'], $settings['mail-from-name']);
   $mailer->addReplyTo($settings['reply-to'], $settings['reply-to-name']);
