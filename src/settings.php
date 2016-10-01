@@ -20,7 +20,7 @@ return [
         'orm' => [
             'url' => isset($_ENV['CLEARDB_DATABASE_URL']) ?
                 $_ENV['CLEARDB_DATABASE_URL'] :
-                'mysql://root:12345678@127.0.0.1:3306/inovacaoiel?reconnect=true' // Configure your development URL here
+                'mysql://root:root@127.0.0.1:8889/inovacaoiel?reconnect=true' // Configure your development URL here
         ],
 
         // Mailer Settings
