@@ -44,6 +44,11 @@
 	width: 85%;
 	max-width: 1000px;
 	margin: 0 auto;
+	font-size: 1.4rem;
+}
+
+.fs-radio-group {
+	margin-top:60px !important;
 }
 
 .fs-form-overview {
@@ -308,7 +313,7 @@ button.fs-continue,
 	position: relative;
 	padding: 10px;
 	max-width: 323px;
-	min-height: 50px;
+	min-height: 33px;
 	width: 32%;
 	text-align: center;
 	font-weight: 700;
@@ -331,7 +336,7 @@ button.fs-continue,
 	color: white;
 	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
-  padding: 16px;
+  padding: 10px;
   border-radius: 5px;
   width: 100%;
 }
