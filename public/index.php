@@ -29,8 +29,5 @@ require __DIR__ . '/../src/middleware.php';
 // Register routes
 require __DIR__ . '/../src/routes.php';
 
-// Database migrations
-require_once __DIR__ . '/../src/migrations.php';
-
 // Run app
 $app->run();

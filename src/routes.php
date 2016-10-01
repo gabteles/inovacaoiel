@@ -36,15 +36,12 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
-  // Get form responses
-  $questions = $form->responses();
-
   // Render report
   return $this->renderer->render($response, 'relatorio.phtml', [
-    'productScore' => calculateAbsoluteScore($questions, 16),
-    'processesScore' => calculateAbsoluteScore($questions, 17),
-    'marketingScore' => calculateAbsoluteScore($questions, 18),
-    'organizationalScore' => calculateAbsoluteScore($questions, 19)
+    'productScore' => calculateAbsoluteScore($form->responses(), 16),
+    'processesScore' => calculateAbsoluteScore($form->responses(), 17),
+    'marketingScore' => calculateAbsoluteScore($form->responses(), 18),
+    'organizationalScore' => calculateAbsoluteScore($form->responses(), 19)
   ]);
 });
 

@@ -9,5 +9,5 @@ function siteURL() {
 
 function calculateAbsoluteScore($questions, $questionNumber) {
   $response = $questions->where('question_number', $questionNumber)->findOne()->response;
-  return round(100 * $response / 7.0);
+  return round(100 * $response / 6.0);
 }
