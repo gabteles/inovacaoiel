@@ -6,3 +6,8 @@ function siteURL() {
   $domainName = $_SERVER['HTTP_HOST'];
   return $protocol . $domainName;
 }
+
+function calculateAbsoluteScore($questions, $questionNumber) {
+  $response = $questions->where('question_number', $questionNumber)->findOne()->response;
+  return round(100 * $response / 7.0);
+}

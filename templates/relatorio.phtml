@@ -105,8 +105,8 @@
             </div>
             <div class="small-12 large-7 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 85%">
-                  85%
+                <div class="progress-bar <?= $productScore < 30 ? 'danger' : '' ?>" style="width: <?= $productScore ?>%">
+                  <?= $productScore ?>%
                 </div>
 
                 <p class="progress-description">
@@ -128,8 +128,8 @@
             </div>
             <div class="small-12 large-7 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar danger" style="width: 35%">
-                  35%
+                <div class="progress-bar <?= $processesScore < 30 ? 'danger' : '' ?>" style="width: <?= $processesScore ?>%">
+                  <?= $processesScore ?>%
                 </div>
 
                 <p class="progress-description">
@@ -152,8 +152,8 @@
             </div>
             <div class="small-12 large-7 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 50%">
-                  50%
+                <div class="progress-bar <?= $marketingScore < 30 ? 'danger' : '' ?>" style="width: <?= $marketingScore ?>%">
+                  <?= $marketingScore ?>%
                 </div>
 
                 <p class="progress-description">
@@ -176,8 +176,8 @@
             </div>
             <div class="small-12 large-7 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar" style="width: 100%">
-                  100%
+                <div class="progress-bar <?= $organizationalScore < 30 ? 'danger' : '' ?>" style="width: <?= $organizationalScore ?>%">
+                  <?= $organizationalScore ?>%
                 </div>
 
                 <p class="progress-description">

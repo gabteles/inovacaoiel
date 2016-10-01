@@ -30,13 +30,22 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     ->where('url', $args['url'])
     ->find_one();
 
+
   // Error if we found nothing
   if ($form == null) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
+  // Get form responses
+  $questions = $form->responses();
+
   // Render report
-  return $this->renderer->render($response, 'relatorio.phtml', []);
+  return $this->renderer->render($response, 'relatorio.phtml', [
+    'productScore' => calculateAbsoluteScore($questions, 16),
+    'processesScore' => calculateAbsoluteScore($questions, 17),
+    'marketingScore' => calculateAbsoluteScore($questions, 18),
+    'organizationalScore' => calculateAbsoluteScore($questions, 19)
+  ]);
 });
 
 
