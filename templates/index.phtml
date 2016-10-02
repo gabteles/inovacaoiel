@@ -532,6 +532,8 @@
         </div>
       </form>
 
+      <img id="submit-loader" src="img/iel/loader.svg">
+
       <script src="js/classie.js"></script>
       <script src="js/selectFx.js"></script>
       <script src="js/vanilla-masker.min.js"></script>
@@ -648,6 +650,7 @@
           new FForm(formWrap, {
             ctrlNavDots: false,
             onReview : function() {
+              document.getElementById('submit-loader').className = 'visible';
               document.getElementById('main-form').submit();
             }
           });

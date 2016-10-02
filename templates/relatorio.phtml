@@ -15,13 +15,11 @@
   </head>
 
   <style type="text/css">
-    @media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+    @media only screen and (min-width: 64.063em) and (max-width: 90em) {
       body {
         background: #333;
       }
-
     }
-
   </style>
 
   <body>
@@ -218,7 +216,7 @@
             </div>
           </div>
         </div>
-        
+
       </section>
 
       <section class="row expanded light-background">
@@ -249,96 +247,96 @@
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-1 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>78%</span>
+                    <span><?= $innovativenessScores[0] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="78">
+                      <div class="graph" data-progress="<?= $innovativenessScores[0] ?>" <?= $highestInnovativenessScoreIndex == 0 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4 large-order-3 columns graph-title">
-                  <span>Aprendizagem Organizacional (78%)</span>
+                  <span>Aprendizagem Organizacional (<?= $innovativenessScores[0] ?>%)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-1 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>35%</span>
+                    <span><?= $innovativenessScores[2] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="35">
+                      <div class="graph" data-progress="<?= $innovativenessScores[2] ?>" <?= $highestInnovativenessScoreIndex == 2 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4 large-order-3 columns graph-title">
-                  <span>Cultura de Inovação(35%)</span>
+                  <span>Cultura de Inovação(<?= $innovativenessScores[2] ?>%)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3  large-order-1  columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>89%</span>
+                    <span><?= $innovativenessScores[4] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5  large-order-2  columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="89">
+                      <div class="graph" data-progress="<?= $innovativenessScores[4] ?>" <?= $highestInnovativenessScoreIndex == 4 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4  large-order-3  columns graph-title">
-                  <span>Estratégia Orientada à Inovação (15%)</span>
+                  <span>Estratégia Orientada à Inovação (<?= $innovativenessScores[4] ?>%)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3  large-order-1  columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>15%</span>
+                    <span><?= $innovativenessScores[6] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5  large-order-2  columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="15">
+                      <div class="graph" data-progress="<?= $innovativenessScores[6] ?>" <?= $highestInnovativenessScoreIndex == 6 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4  large-order-3  columns graph-title">
-                  <span>Estrutura Favorável à Inovação (15%)</span>
+                  <span>Estrutura Favorável à Inovação (<?= $innovativenessScores[6] ?>%)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3  large-order-1  columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>15%</span>
+                    <span><?= $innovativenessScores[8] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5  large-order-2  columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="15">
+                      <div class="graph" data-progress="<?= $innovativenessScores[8] ?>" <?= $highestInnovativenessScoreIndex == 8 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4  large-order-3  columns graph-title">
-                  <span>Recursos Financeiros disponíveis p/ Inovação (15%)</span>
+                  <span>Recursos Financeiros disponíveis p/ Inovação (<?= $innovativenessScores[8] ?>%)</span>
                 </div>
               </div>
             </div>
@@ -346,95 +344,95 @@
             <div class="small-6 large-6 medium-6 columns text-right">
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1 large-5 large-order-1 columns graph-title">
-                  <span>Liderança Comprometida com a Inovação (78%)</span>
+                  <span>Liderança Comprometida com a Inovação (<?= $innovativenessScores[1] ?>%)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="78">
+                      <div class="graph" data-progress="<?= $innovativenessScores[1] ?>" <?= $highestInnovativenessScoreIndex == 1 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>78%</span>
+                    <span><?= $innovativenessScores[1] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1 large-5 large-order-1 columns graph-title">
-                  <span>Marketing para Inovação (35%)</span>
+                  <span>Marketing para Inovação (<?= $innovativenessScores[3] ?>%)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="35">
+                      <div class="graph" data-progress="<?= $innovativenessScores[3] ?>" <?= $highestInnovativenessScoreIndex == 3 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2  large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>35%</span>
+                    <span><?= $innovativenessScores[3] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1 large-5 large-order-1 columns graph-title">
-                  <span>Pessoas orientadas à Inovação (89%)</span>
+                  <span>Pessoas orientadas à Inovação (<?= $innovativenessScores[5] ?>%)</span>
                 </div>
                 <div class="small-12 medium-12 medium-order-1 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="89" data-highest="true" >
+                      <div class="graph" data-progress="<?= $innovativenessScores[5] ?>" <?= $highestInnovativenessScoreIndex == 5 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>89%</span>
+                    <span><?= $innovativenessScores[5] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1  large-5 large-order-1 columns graph-title">
-                  <span>Processos Habilitadores da Inovação (15%)</span>
+                  <span>Processos Habilitadores da Inovação (<?= $innovativenessScores[7] ?>%)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="15">
+                      <div class="graph" data-progress="<?= $innovativenessScores[7] ?>" <?= $highestInnovativenessScoreIndex == 7 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2  large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>15%</span>
+                    <span><?= $innovativenessScores[7] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1  large-5 large-order-1 columns graph-title">
-                  <span>Relação com o ambiente externo (15%)</span>
+                  <span>Relação com o ambiente externo (<?= $innovativenessScores[9] ?>%)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="15">
+                      <div class="graph" data-progress="<?= $innovativenessScores[9] ?>" <?= $highestInnovativenessScoreIndex == 9 ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span>15%</span>
+                    <span><?= $innovativenessScores[9] ?>%</span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
@@ -459,12 +457,27 @@
                 essenciais à inovação.
               </p>
               <p class="sidebar-description text-justify">
-                Maior escore: <strong>PESSOAS ORIENTADAS À INOVAÇÃO</strong>
+                Maior escore: <strong>
+                <?php
+                  switch ($highestInnovativenessScoreIndex) {
+                  case 0: echo 'APRENDIZAGEM ORGANIZACIONAL'; break;
+                  case 1: echo 'LIDERANÇA COMPROMETIDA COM A INOVAÇÃO '; break;
+                  case 2: echo 'CULTURA DE INOVAÇÃO'; break;
+                  case 3: echo 'MARKETING PARA INOVAÇÃO'; break;
+                  case 4: echo 'ESTRATÉGIA ORIENTADA À INOVAÇÃO'; break;
+                  case 5: echo 'PESSOAS ORIENTADAS À INOVAÇÃO'; break;
+                  case 6: echo 'ESTRUTURA FAVORÁVEL À INOVAÇÃO'; break;
+                  case 7: echo 'PROCESSOS HABILITADORES DA INOVAÇÃO'; break;
+                  case 8: echo 'RECURSOS FINANCEIROS DISPONÍVEIS P/ INOVAÇÃO'; break;
+                  case 9: echo 'RELAÇÃO COM O AMBIENTE EXTERNO'; break;
+                  };
+                ?>
+                </strong>
               </p>
             </div>
           </div>
         </div>
-        
+
 
       </section>
 

@@ -22,3 +22,16 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Raleway', Arial, sans-serif;
 }
+
+#submit-loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  max-width: 200px;
+  display: none;
+}
+
+#submit-loader.visible {
+  display: block;
+}

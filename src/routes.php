@@ -36,12 +36,28 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
+  $innovativenessScores = [];
+  $highestInnovativenessScore = 0;
+  $highestInnovativenessScoreIndex = 0;
+
+  for ($i = 6; $i <= 15; $i++) {
+    $j = $i - 6;
+    $innovativenessScores[$j] = calculateAbsoluteScore($form->responses(), $i);
+
+    if ($innovativenessScores[$j] > $highestInnovativenessScore) {
+      $highestInnovativenessScore = $innovativenessScores[$j];
+      $highestInnovativenessScoreIndex = $j;
+    }
+  }
+
   // Render report
   return $this->renderer->render($response, 'relatorio.phtml', [
     'productScore' => calculateAbsoluteScore($form->responses(), 16),
     'processesScore' => calculateAbsoluteScore($form->responses(), 17),
     'marketingScore' => calculateAbsoluteScore($form->responses(), 18),
-    'organizationalScore' => calculateAbsoluteScore($form->responses(), 19)
+    'organizationalScore' => calculateAbsoluteScore($form->responses(), 19),
+    'innovativenessScores' => $innovativenessScores,
+    'highestInnovativenessScoreIndex' => $highestInnovativenessScoreIndex
   ]);
 });
 
