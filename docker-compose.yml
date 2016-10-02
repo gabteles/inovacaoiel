@@ -3,7 +3,7 @@ database:
   environment:
     MYSQL_ROOT_PASSWORD: '12345678'
   ports:
-    - '3306:3306'
+    - '8889:3306'
 
 dba:
   image: phpmyadmin/phpmyadmin
