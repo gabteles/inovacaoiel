@@ -1,3 +1,7 @@
+body {
+    line-height: 140%;
+}
+
 .light-background {
   background: rgba(96, 170, 182, 0.64);
 }
@@ -7,6 +11,7 @@
   color: #11627F;
   padding-top: 25px;
   text-align: center;
+  border-top: 3px solid #11627f;
 }
 
 .sidebar .sidebar-title {
@@ -18,13 +23,13 @@
 .sidebar .sidebar-subtitle {
   text-transform: uppercase;
   padding: 5px 10px 0 0;
-  border-top: 3px solid;
   font-size: 1.2rem;
 }
 
 .sidebar .sidebar-description {
   padding: 1rem 0 0 1.2rem;
-  font-size: 1.3em;
+  font-size: 1rem;
+  line-height: 140%;
 }
 
 .progress-label, .progress-icon {
@@ -32,9 +37,9 @@
 }
 
 .progress-label {
-  padding-right: 20px;
-  width: 60%;
-  text-align: right;
+  padding-right: 0px;
+  width: 100%;
+  text-align: center;
   text-transform: uppercase;
   vertical-align: baseline;
 }
@@ -47,6 +52,7 @@
   border-radius: 50%;
   text-align: center;
   line-height: 90px;
+  margin-top: 10px;
 }
 
 .progress-icon.with-border {
@@ -82,6 +88,8 @@
   padding: 15px;
   text-transform: uppercase;
   text-align: justify;
+  font-size:0.8rem;
+  line-height: 140%;
 }
 
 .graph-container {
@@ -121,7 +129,7 @@
 }
 
 .graph-title {
-  text-transform: uppercase;
+  text-transform: inherit;
   display: table;
   min-height: 110px;
 }
@@ -239,8 +247,9 @@
 }
 
 #graph-description {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0 5%;
+  line-height: 140%;
 }
 
 #progresses {
@@ -285,7 +294,8 @@
 
 #solutions-title p {
   padding-top: 2em;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  line-height: 140%;
 }
 
 #solutions-graph {
@@ -308,7 +318,7 @@
 #book-a-visit h1 {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1rem;
 }
 
 #book-a-visit h1 em {
@@ -320,16 +330,16 @@
 #book-a-visit h2 {
   text-transform: uppercase;
   margin-bottom: 0;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 #book-a-visit h3 {
   margin-bottom: 0;
-  font-size: 1.8rem;
+  font-size: 1rem;
 }
 
 .b-area {
-  margin:75px 0px 75px 0px;
+
 }
 
 #footer {
@@ -382,16 +392,20 @@
     padding-top:0px;
   }
 
-  .progress-label {
-    text-align: center;
-  }
+.progress-title {
+  text-align:center;
+  margin-top:0px;
+}
 
-  .progress-title {
-    margin: 20px 0px;
-  }
+.progress-label {
+    padding-right: 0px;
+    width: 100% !important;
+    text-align: center;
+    font-size:0.8rem;
+} 
 
   .graph-title {
-    /*text-align: center*/
+    text-align: center
   }
 
 #solutions-title h1 {
@@ -430,86 +444,150 @@
 #book-a-visit {
   text-align: center
 }
+.progress-title {
+  text-align:center;
+  margin-top:0px;
+}
+.progress-bar {
+  padding: 10px 15px 10px 0;
+}
 
+.progress-label {
+    padding-right: 0px;
+    width: 100%;
+    text-align: center;
+    font-size:0.8rem;
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
-
+}
 
 /* Medium screens*/
 @media only screen and (min-width: 40.063em) { } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  #title-label{
-    text-align: right;
+
+      #solutions-graph {
+        margin-top: 0px !important;
+      }
+
+      .graph-title {
+        text-align: center
+      }
+
+
+      #title-label{
+        text-align: right;
+        }
+      #title-label-right {
+        text-align: left;
+        }
+
+      #title-label h1 {
+        font-size: 2.8em;
+        letter-spacing: -3px;
+        margin-bottom: 10px
+      }
+      #title-label h2 {
+        font-size: 1.8em;
+      }
+      #title-label h3 {
+        font-size: 1.24em;
+      }
+
+    .progress-label {
+
+        /* margin-top: -3px; */
+        line-height: 100%;
+
+        }
+
+      #solutions-title h1 {
+        font-size: 2.6rem;
+        text-align: center;
+        margin: 0;
+        line-height: 110%;
+      }
+
+      #solutions-title h2 {
+        font-size: 2.6rem;
+        line-height: 110%;
+        text-align:center;
+        text-align-last:center;
+        margin: 0px;
+      }
+
+      #solutions-title h3 {
+        font-size: 2.6rem;
+        text-align: center;
+        text-align-last:center;
+        line-height: 110%;
+      }
+      #solutions-graph {
+      margin-top: 0px;
+      text-align: center;
     }
-  #title-label-right {
-    text-align: left;
-    }
 
-  #title-label h1 {
-    font-size: 2.8em;
-    letter-spacing: -3px;
-    margin-bottom: 10px
-  }
-  #title-label h2 {
-    font-size: 1.8em;
-  }
-  #title-label h3 {
-    font-size: 1.24em;
-  }
-
-.progress-label {
-    padding-bottom: 35px;
-    /* margin-top: -3px; */
-    line-height: 201%;
+    #solutions-graph img {
+      max-width: 90%;
+      margin-left:0px;
 
     }
 
-  #solutions-title h1 {
-    font-size: 2.6rem;
-    text-align: center;
-    margin: 0;
-    line-height: 110%;
-  }
+      #title-level {
+        font-size: 9rem;
+        line-height: 8rem;
+        margin-top: -23px;
+        text-align: center;
+      }
 
-  #solutions-title h2 {
-    font-size: 2.6rem;
-    line-height: 110%;
-    text-align:center;
-    text-align-last:center;
-    margin: 0px;
-  }
 
-  #solutions-title h3 {
-    font-size: 2.6rem;
-    text-align: center;
-    text-align-last:center;
-    line-height: 110%;
-  }
-  #solutions-graph {
-  margin-top: 0px;
-  text-align: center;
-}
 
-#solutions-graph img {
-  max-width: 90%;
-  margin-left:0px;
+    .progress-title {
+      text-align:center;
+      margin-top:0px;
+    }
+    .progress-bar {
+      padding: 10px 15px 10px 0;
+    }
 
-}
-
-  #title-level {
-    font-size: 9rem;
-    line-height: 8rem;
-    margin-top: -23px;
-    text-align: center;
-  }
-
-  } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+    .progress-label {
+        padding-right: 0px;
+        width: 100% !important;
+        text-align: center;
+        font-size:0.8rem;
+    } 
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 /* Large screens*/
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
 
-@media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+  .container {
+    max-width: 960px;
+    margin:0 auto;
+    background: #003758 url(../img/iel/mock-04.png) fixed;
+    /*height:100%;*/
+  }
+  .graph-title span {
+    font-size: 0.8rem;
+    line-height: 140%;
+  }
+  #solutions-title h1 {
+    letter-spacing: 11px;
+  }
+
+  .title {
+    padding-top:40px;
+    margin-top:0px;
+  }
+  #book-a-visit {
+    margin-top:0px;
+  }
+
+  #solutions-title h1 {letter-spacing: -2px;}
+  #solutions-title h2 {font-size:3.2rem;}
+  #solutions-title h3 {font-size:3.2rem;}
+} /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
 
 /* XLarge screens*/
 @media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */
