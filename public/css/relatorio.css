@@ -402,10 +402,10 @@ body {
     width: 100% !important;
     text-align: center;
     font-size:0.8rem;
-} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
+} 
 
   .graph-title {
-    /*text-align: center*/
+    text-align: center
   }
 
 #solutions-title h1 {
@@ -459,97 +459,104 @@ body {
     font-size:0.8rem;
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
 
-
+}
 
 /* Medium screens*/
 @media only screen and (min-width: 40.063em) { } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  #title-label{
-    text-align: right;
+
+      #solutions-graph {
+        margin-top: 0px !important;
+      }
+
+      .graph-title {
+        text-align: center
+      }
+
+
+      #title-label{
+        text-align: right;
+        }
+      #title-label-right {
+        text-align: left;
+        }
+
+      #title-label h1 {
+        font-size: 2.8em;
+        letter-spacing: -3px;
+        margin-bottom: 10px
+      }
+      #title-label h2 {
+        font-size: 1.8em;
+      }
+      #title-label h3 {
+        font-size: 1.24em;
+      }
+
+    .progress-label {
+
+        /* margin-top: -3px; */
+        line-height: 100%;
+
+        }
+
+      #solutions-title h1 {
+        font-size: 2.6rem;
+        text-align: center;
+        margin: 0;
+        line-height: 110%;
+      }
+
+      #solutions-title h2 {
+        font-size: 2.6rem;
+        line-height: 110%;
+        text-align:center;
+        text-align-last:center;
+        margin: 0px;
+      }
+
+      #solutions-title h3 {
+        font-size: 2.6rem;
+        text-align: center;
+        text-align-last:center;
+        line-height: 110%;
+      }
+      #solutions-graph {
+      margin-top: 0px;
+      text-align: center;
     }
-  #title-label-right {
-    text-align: left;
-    }
 
-  #title-label h1 {
-    font-size: 2.8em;
-    letter-spacing: -3px;
-    margin-bottom: 10px
-  }
-  #title-label h2 {
-    font-size: 1.8em;
-  }
-  #title-label h3 {
-    font-size: 1.24em;
-  }
-
-.progress-label {
-    padding-bottom: 35px;
-    /* margin-top: -3px; */
-    line-height: 201%;
+    #solutions-graph img {
+      max-width: 90%;
+      margin-left:0px;
 
     }
 
-  #solutions-title h1 {
-    font-size: 2.6rem;
-    text-align: center;
-    margin: 0;
-    line-height: 110%;
-  }
+      #title-level {
+        font-size: 9rem;
+        line-height: 8rem;
+        margin-top: -23px;
+        text-align: center;
+      }
 
-  #solutions-title h2 {
-    font-size: 2.6rem;
-    line-height: 110%;
-    text-align:center;
-    text-align-last:center;
-    margin: 0px;
-  }
 
-  #solutions-title h3 {
-    font-size: 2.6rem;
-    text-align: center;
-    text-align-last:center;
-    line-height: 110%;
-  }
-  #solutions-graph {
-  margin-top: 0px;
-  text-align: center;
-}
 
-#solutions-graph img {
-  max-width: 90%;
-  margin-left:0px;
+    .progress-title {
+      text-align:center;
+      margin-top:0px;
+    }
+    .progress-bar {
+      padding: 10px 15px 10px 0;
+    }
 
-}
-
-  #title-level {
-    font-size: 9rem;
-    line-height: 8rem;
-    margin-top: -23px;
-    text-align: center;
-  }
-
-#solutions-graph {
-
-}
-
-.progress-title {
-  text-align:center;
-  margin-top:0px;
-}
-.progress-bar {
-  padding: 10px 15px 10px 0;
-}
-
-.progress-label {
-    padding-right: 0px;
-    width: 100% !important;
-    text-align: center;
-    font-size:0.8rem;
-} /* max-width 640px, mobile-only styles, use when QAing mobile issues */
-
-  } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+    .progress-label {
+        padding-right: 0px;
+        width: 100% !important;
+        text-align: center;
+        font-size:0.8rem;
+    } 
+} /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 /* Large screens*/
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
