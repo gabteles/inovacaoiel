@@ -129,7 +129,7 @@ body {
 }
 
 .graph-title {
-  text-transform: uppercase;
+  text-transform: inherit;
   display: table;
   min-height: 110px;
 }
@@ -561,7 +561,33 @@ body {
 /* Large screens*/
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
 
-@media only screen and (min-width: 64.063em) and (max-width: 90em) { } /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
+@media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+  .container {
+    max-width: 960px;
+    margin:0 auto;
+    background: #003758 url(../img/iel/mock-04.png) fixed;
+    /*height:100%;*/
+  }
+  .graph-title span {
+    font-size: 0.8rem;
+    line-height: 140%;
+  }
+  #solutions-title h1 {
+    letter-spacing: 11px;
+  }
+
+  .title {
+    padding-top:40px;
+    margin-top:0px;
+  }
+  #book-a-visit {
+    margin-top:0px;
+  }
+
+  #solutions-title h1 {letter-spacing: -2px;}
+  #solutions-title h2 {font-size:3.2rem;}
+  #solutions-title h3 {font-size:3.2rem;}
+} /* min-width 1025px and max-width 1440px, use when QAing large screen-only issues */
 
 /* XLarge screens*/
 @media only screen and (min-width: 90.063em) { } /* min-width 1441px, xlarge screens */
