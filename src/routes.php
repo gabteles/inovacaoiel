@@ -36,12 +36,36 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
+
+  $priorityMatrix = [
+    [[1,0,0,0], [0,1,1,0], [0,0,1,0], [0,0,0,1]],
+    [[1,0,0,0], [1,0,0,1], [0,0,1,1], [0,1,1,0]],
+    [[1,0,0,1], [0,1,1,0], [0,0,0,1], [0,1,1,0]]
+  ];
+
+  $innovationPriorities = [0,0,0,0];
+
+  for ($i = 4; $i <= 6; $i++) {
+    $res = $form->responses()->where('question_number', $i)->findOne()->response;
+
+    for ($j = 0 ; $j < 4; $j++) {
+      $innovationPriorities[$j] += $priorityMatrix[$i - 4][$res][$j];
+    }
+  }
+
+  $innovationPriorityIndex = 0;
+  for ($i = 0; $i < 4; $i++) {
+    if ($innovationPriorities[$i] > $innovationPriorities[$innovationPriorityIndex]) {
+      $innovationPriorityIndex = $i;
+    }
+  }
+
   $innovativenessScores = [];
   $highestInnovativenessScore = 0;
   $highestInnovativenessScoreIndex = 0;
 
-  for ($i = 6; $i <= 15; $i++) {
-    $j = $i - 6;
+  for ($i = 7; $i <= 16; $i++) {
+    $j = $i - 7;
     $innovativenessScores[$j] = calculateAbsoluteScore($form->responses(), $i);
 
     if ($innovativenessScores[$j] > $highestInnovativenessScore) {
@@ -50,12 +74,28 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     }
   }
 
+  $innovationTypesScores = [];
+  $innovationTypesHighestScore = 0;
+  $innovationTypesHighestScoreIndex = 0;
+
+  for ($i = 17; $i <= 20; $i++) {
+    $j = $i - 17;
+    $innovationTypesScores[$j] = calculateAbsoluteScore($form->responses(), $i);
+
+    if ($innovationTypesScores[$j] > $innovationTypesHighestScore) {
+      $innovationTypesHighestScore = $innovationTypesScores[$j];
+      $innovationTypesHighestScoreIndex = $j;
+    }
+  }
+
   // Render report
   return $this->renderer->render($response, 'relatorio.phtml', [
-    'productScore' => calculateAbsoluteScore($form->responses(), 16),
-    'processesScore' => calculateAbsoluteScore($form->responses(), 17),
-    'marketingScore' => calculateAbsoluteScore($form->responses(), 18),
-    'organizationalScore' => calculateAbsoluteScore($form->responses(), 19),
+    'innovationPriorityIndex' => $innovationPriorityIndex,
+
+    'innovationTypesScores' => $innovationTypesScores,
+    'innovationTypesHighestScore' => $innovationTypesHighestScore,
+    'innovationTypesHighestScoreIndex' => $innovationTypesHighestScoreIndex,
+
     'innovativenessScores' => $innovativenessScores,
     'highestInnovativenessScoreIndex' => $highestInnovativenessScoreIndex
   ]);
@@ -87,13 +127,14 @@ $app->post('/relatorio', function ($request, $response, $args) {
   $form->save();
 
   // For each response
-  for ($i = 1 ; $i <= 25; $i++) {
+  for ($i = 1 ; $i <= 26; $i++) {
     $fieldName = "q$i";
 
     // Error if the response
     if (!isset($parsedBody[$fieldName])) {
       $this->db->rollBack();
       $errorArgs = [];
+      $this->logger->error("Erro ao processar questão $i");
       return $this->renderer->render($response, 'index.phtml', $errorArgs);
     }
 
@@ -109,8 +150,8 @@ $app->post('/relatorio', function ($request, $response, $args) {
   $this->db->commit();
 
   // Send email
-  $name = $parsedBody['q21'];
-  $email = $parsedBody['q22'];
+  $name = $parsedBody['q22'];
+  $email = $parsedBody['q23'];
   $basePath = siteURL();
   $emailBody = $this->renderer->fetch('template-email.phtml', [
     'name' => $name,

@@ -112,8 +112,8 @@
             </div>
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar <?= $productScore < 30 ? 'danger' : '' ?>" style="width: <?= $productScore ?>%">
-                  <?= $productScore ?>%
+                <div class="progress-bar <?= ($innovationPriorityIndex == 0) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[0] ?>%">
+                  <?= $innovationTypesScores[0] ?>%
                 </div>
 
                 <p class="progress-description">
@@ -135,8 +135,8 @@
             </div>
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar <?= $processesScore < 30 ? 'danger' : '' ?>" style="width: <?= $processesScore ?>%">
-                  <?= $processesScore ?>%
+                <div class="progress-bar <?= ($innovationPriorityIndex == 1) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[1] ?>%">
+                  <?= $innovationTypesScores[1] ?>%
                 </div>
 
                 <p class="progress-description">
@@ -159,8 +159,8 @@
             </div>
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar <?= $marketingScore < 30 ? 'danger' : '' ?>" style="width: <?= $marketingScore ?>%">
-                  <?= $marketingScore ?>%
+                <div class="progress-bar <?= ($innovationPriorityIndex == 2) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[2] ?>%">
+                  <?= $innovationTypesScores[2] ?>%
                 </div>
 
                 <p class="progress-description">
@@ -183,8 +183,8 @@
             </div>
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
-                <div class="progress-bar <?= $organizationalScore < 30 ? 'danger' : '' ?>" style="width: <?= $organizationalScore ?>%">
-                  <?= $organizationalScore ?>%
+                <div class="progress-bar <?= ($innovationPriorityIndex == 3) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[3] ?>%">
+                  <?= $innovationTypesScores[3] ?>%
                 </div>
 
                 <p class="progress-description">
@@ -209,9 +209,17 @@
           <div class="row">
             <div class="small-12 medium-12 large-12 columns">
               <p class="sidebar-description text-justify">
-                Você prioriza atualmente a inovação em <strong>PROCESSOS</strong>.
+                Você prioriza atualmente a inovação
+                  <?php
+                    switch ($innovationPriorityIndex) {
+                      case 0: echo 'em <strong>PRODUTOS</strong>'; break;
+                      case 1: echo 'em <strong>PROCESSOS</strong>'; break;
+                      case 2: echo 'em <strong>MARKETING</strong>'; break;
+                      case 3: echo '<strong>ORGANIZACIONAL</strong>'; break;
+                    }
+                  ?>.
                 Seu score nos resultados com esse tipo de inovação ficou em <strong>
-                35% (baixo)</strong>
+                <?= $innovationTypesScores[$innovationPriorityIndex] ?>% (<?= $innovationTypesScores[$innovationPriorityIndex] < 70 ? 'baixo' : 'alto' ?>)</strong>
               </p>
             </div>
           </div>
