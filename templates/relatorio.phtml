@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="large-offset-1 large-7 medium-8 small-12 columns ">
+        <div class="large-8 medium-8 small-12 columns ">
           <img src="/img/iel/relatorio/grafico.png" />
           <br/>
           <p id="graph-description" class="text-justify">
@@ -58,7 +58,7 @@
             inovadora interna gere resultados concretos.</strong>
           </p>
         </div>
-        <div class="small-12 large-3 medium-4 columns sidebar show-for-medium">
+        <div class="small-12 large-4 medium-4 columns sidebar show-for-medium">
           <div class="row">
             <div class="columns text-center">
               <h1 class="sidebar-title">A</h1>
@@ -68,7 +68,6 @@
             </div>
           </div>
         </div>
-        <div class="large-1 columns sidebar show-for-large">
       </section>
 
       <section class="row expanded b-area" >
@@ -93,9 +92,9 @@
           </div>
         </div>
 
-        <div class="medium-8 large-8 small-12 columns" id="progresses">
+        <div class="medium-8 large-8 small-12 columns " style="padding-top:20px" id="progresses">
           <div class="row progress-indicator">
-            <div class="small-12 large-5 columns progress-title">
+            <div class="small-4 large-4 columns progress-title" style="text-align:center">
               <div class="progress-label">
                 <span>Inovação em</span> <strong>Produtos</strong>
               </div>
@@ -103,7 +102,7 @@
                 <i class="fa fa-rocket" aria-hidden="true"></i>
               </div>
             </div>
-            <div class="small-12 large-7 columns">
+            <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= $productScore < 30 ? 'danger' : '' ?>" style="width: <?= $productScore ?>%">
                   <?= $productScore ?>%
@@ -118,7 +117,7 @@
           </div>
 
           <div class="row progress-indicator">
-            <div class="small-12 large-5 columns progress-title">
+            <div class="small-4 large-4 columns progress-title" style="text-align:center">
               <div class="progress-label">
                 <span>Inovação em</span> <strong>Processos</strong>
               </div>
@@ -126,7 +125,7 @@
                 <i class="fa fa-recycle" aria-hidden="true"></i>
               </div>
             </div>
-            <div class="small-12 large-7 columns">
+            <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= $processesScore < 30 ? 'danger' : '' ?>" style="width: <?= $processesScore ?>%">
                   <?= $processesScore ?>%
@@ -142,7 +141,7 @@
           </div>
 
           <div class="row progress-indicator">
-            <div class="small-12 large-5 columns progress-title">
+            <div class="small-4 large-4 columns progress-title" style="text-align:center">
               <div class="progress-label">
                 <span>Inovação em</span> <strong>Marketing</strong>
               </div>
@@ -150,7 +149,7 @@
                 <i class="fa fa-bullhorn" aria-hidden="true"></i>
               </div>
             </div>
-            <div class="small-12 large-7 columns">
+            <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= $marketingScore < 30 ? 'danger' : '' ?>" style="width: <?= $marketingScore ?>%">
                   <?= $marketingScore ?>%
@@ -166,7 +165,7 @@
           </div>
 
           <div class="row progress-indicator">
-            <div class="small-12 large-5 columns progress-title">
+            <div class="small-4 large-4 columns progress-title" style="text-align:center">
               <div class="progress-label">
                 <span>Inovação</span> <strong>Organizacional</strong>
               </div>
@@ -174,7 +173,7 @@
                 <i class="fa fa-cubes" aria-hidden="true"></i>
               </div>
             </div>
-            <div class="small-12 large-7 columns">
+            <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= $organizationalScore < 30 ? 'danger' : '' ?>" style="width: <?= $organizationalScore ?>%">
                   <?= $organizationalScore ?>%
@@ -190,7 +189,7 @@
           </div>
 
         </div>
-        <div class="small-3 large-3 medium-4 columns sidebar show-for-medium">
+        <div class="small-3 large-4 medium-4 columns sidebar show-for-medium">
           <div class="row">
             <div class="columns text-center">
               <h1 class="sidebar-title">B</h1>
@@ -209,7 +208,7 @@
             </div>
           </div>
         </div>
-        <div class="small-1 large-1 columns sidebar show-for-large"></div>
+        
       </section>
 
       <section class="row expanded light-background">
@@ -434,7 +433,7 @@
 
           </div>
         </div>
-        <div class="small-3 large-3 columns sidebar show-for-large">
+        <div class="small-3 large-4 columns sidebar show-for-large">
           <div class="row">
             <div class="columns text-center">
               <h1 class="sidebar-title">C</h1>
@@ -455,12 +454,12 @@
             </div>
           </div>
         </div>
-        <div class="small-1 large-1 columns sidebar show-for-large"></div>
+        
 
       </section>
 
-      <section class="row" id="solutions">
-        <div class="small-12 large-5 medium-12 columns text-justify" id="solutions-title">
+      <section class="row expanded" id="solutions">
+        <div class="small-12 large-5 medium-10 medium-offset-1 columns text-justify" id="solutions-title">
           <h1>Conheça</h1>
           <h2>As soluções em gestão da</h2>
           <h3><strong>Inovação <em>IEL</em></strong></h3>
@@ -472,9 +471,9 @@
         </div>
       </section>
 
-      <section class="row" id="solutions-graph">
+      <section class="row" id="solutions-graph" >
         <div class="columns small-12">
-          <img src="/img/iel/relatorio/solucoes.png"/>
+          <img src="/img/iel/relatorio/solucoes.png" class="hide-for-small-only"/>
         </div>
       </section>
 
@@ -598,13 +597,13 @@
       </section>
 
       <section class="row expanded align-middle text-left" id="footer">
-        <div class="small-12 large-3 medium-12 large-offset-1 ">
+        <div class="small-12 large-3 medium-3 medium-offset-1 large-offset-1 ">
           <img src="/img/iel/relatorio/footer-inov-logo.png"/>
         </div>
-        <div class="small-12 large-5 medium-12 text-center">
-          <h3>www.iel.org.br/gestaodainovacao</h3>
+        <div class="small-12 large-5 medium-5 text-center">
+          <h6>www.iel.org.br/gestaodainovacao</h6>
         </div>
-        <div class="small-12 large-2 medium-12 text-center">
+        <div class="small-12 large-2 medium-2 text-center">
           <img src="/img/iel/relatorio/footer-iel-logo.png"/>
         </div>
       </section>
