@@ -25,8 +25,10 @@ return [
 
         // Mailer Settings
         'mailer' => [
+            'type' => 'sendmail', // Can be 'sendmail' or 'smtp'
             'debug' => 'true',
 
+            // SMTP settings. Fill if using 'type' => 'smtp'
             'host' => 'smtp.gmail.com',
             'smtp-auth' => true,
             'username' => 'email',
