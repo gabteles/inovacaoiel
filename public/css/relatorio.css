@@ -346,6 +346,32 @@ body {
   /*margin-top: 200px;*/
 }
 
+.general-graph-container {
+  position: relative;
+}
+
+.general-graph-virtual-area {
+  position: absolute;
+  top: 56px;
+  left: 98px;
+  right: 46px;
+  bottom: 90px;
+}
+
+.general-graph-pointer {
+  display: inline-block;
+  background: #EE9770;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #11627F;
+  font-size: 1.75em;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  transform: translate(-50%, 50%);
+}
+
 
 /* Small screens */
 @media only screen { } /* Define mobile styles */
@@ -402,7 +428,7 @@ body {
     width: 100% !important;
     text-align: center;
     font-size:0.8rem;
-} 
+}
 
   .graph-title {
     text-align: center
@@ -555,13 +581,13 @@ body {
         width: 100% !important;
         text-align: center;
         font-size:0.8rem;
-    } 
+    }
 } /* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
 
 /* Large screens*/
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
 
-@media only screen and (min-width: 64.063em) and (max-width: 90em) { 
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
   .container {
     max-width: 960px;
     margin:0 auto;

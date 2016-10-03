@@ -52,7 +52,13 @@
           </div>
         </div>
         <div class="large-8 medium-8 small-12 columns ">
-          <img src="/img/iel/relatorio/grafico.png" />
+          <div class="general-graph-container">
+            <div class="general-graph-virtual-area">
+              <div class="general-graph-pointer" style="left: <?= $xAxisValue ?>%; bottom: <?= $yAxisValue ?>%;"><?= $generalInnovationScore ?></div>
+            </div>
+            <img src="/img/iel/relatorio/grafico.png" />
+          </div>
+
           <br/>
           <p id="graph-description" class="text-justify">
             <?php if (($xAxisValue >= 70) && ($yAxisValue >= 70)): ?>
