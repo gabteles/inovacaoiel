@@ -31,8 +31,8 @@ return [
             // SMTP settings. Fill if using 'type' => 'smtp'
             'host' => 'smtp.gmail.com',
             'smtp-auth' => true,
-            'username' => 'email',
-            'password' => 'secret',
+            'username' => 'inovacaoiel@gmail.com',
+            'password' => '8h9fqdq983o',
             'smtp-secure' => 'tls',
             'port' => 587,
 
