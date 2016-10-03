@@ -677,13 +677,21 @@ button.fs-continue,
 
 /* Continue button and submit button */
 button.fs-submit,
-button.fs-continue {
+button.fs-continue,
+.fs-button {
 	padding: 0.6em 1.5em;
 	border: 3px solid white;
 	border-radius: 40px;
 	font-weight: 700;
 	color: #00a59e;
 	background: white;
+}
+
+.fs-button {
+	margin: 0 auto;
+	display: block;
+	width: 240px;
+	text-decoration: none;
 }
 
 button.fs-back {

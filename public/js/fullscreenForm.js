@@ -189,12 +189,16 @@
 		// jump to next field without clicking the continue button (for fields/list items with the attribute "data-input-trigger")
 		this.fields.forEach( function( fld ) {
 			if( fld.hasAttribute( 'data-input-trigger' ) ) {
-				var input = fld.querySelector( 'input[type="radio"]' ) || /*fld.querySelector( '.cs-select' ) ||*/ fld.querySelector( 'select' ); // assuming only radio and select elements (TODO: exclude multiple selects)
+				var input = fld.querySelector( 'input[type="radio"]' ) || fld.querySelector( 'select' ) || fld.querySelector('a.fs-button');
 				if( !input ) return;
 
 				switch( input.tagName.toLowerCase() ) {
 					case 'select' :
 						input.addEventListener( 'change', function() { self._nextField(); } );
+						break;
+
+					case 'a' :
+						input.addEventListener( 'click', function() { self._nextField(); } );
 						break;
 
 					case 'input' :
@@ -320,7 +324,6 @@
 
 					var nextTextField = nextField.querySelectorAll('input[type=text]')[0];
 					var nextEmailField = nextField.querySelectorAll('input[type=email]')[0];
-
 					if (nextTextField) {
 						nextTextField.focus();
 					} else if (nextEmailField) {
