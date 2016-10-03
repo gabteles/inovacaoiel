@@ -117,7 +117,6 @@
 		// continue button (jump to next field)
 		this.ctrlContinue = createElement( 'button', { cName : 'fs-continue', inner : 'CONTINUAR', appendTo : this.ctrls } );
 		this.ctrlBack = createElement( 'button', { cName : 'fs-back', inner : 'VOLTAR', appendTo : this.ctrls } );
-		this._showCtrl( this.ctrlContinue );
 
 		// navigation dots
 		if( this.options.ctrlNavDots ) {
@@ -282,6 +281,22 @@
 			var nextField = this.fields[ this.current ];
 			classie.add( nextField, 'fs-current' );
 			classie.add( nextField, 'fs-show' );
+
+			if (nextField.hasAttribute( 'data-hide-last-button' )) {
+				classie.remove(this.ctrlBack, 'fs-show');
+				classie.add(this.ctrlBack, 'fs-hide');
+			} else {
+				classie.add(this.ctrlBack, 'fs-show');
+				classie.remove(this.ctrlBack, 'fs-hide');
+			}
+
+			if (nextField.hasAttribute( 'data-hide-next-button' )) {
+				classie.remove(this.ctrlContinue, 'fs-show');
+				classie.add(this.ctrlContinue, 'fs-hide');
+			} else {
+				classie.add(this.ctrlContinue, 'fs-show');
+				classie.remove(this.ctrlContinue, 'fs-hide');
+			}
 		}
 
 		// after animation ends remove added classes from fields
