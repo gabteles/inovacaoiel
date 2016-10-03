@@ -278,7 +278,6 @@
 			var nextField = this.fields[ this.current ];
 			classie.add( nextField, 'fs-current' );
 			classie.add( nextField, 'fs-show' );
-
 		}
 
 		// after animation ends remove added classes from fields
@@ -317,6 +316,15 @@
 						self.ctrlFldStatusCurr.innerHTML = self.ctrlFldStatusNew.innerHTML;
 						self.ctrlFldStatus.removeChild( self.ctrlFldStatusNew );
 						classie.remove( self.ctrlFldStatus, 'fs-show-' + self.navdir );
+					}
+
+					var nextTextField = nextField.querySelectorAll('input[type=text]')[0];
+					var nextEmailField = nextField.querySelectorAll('input[type=email]')[0];
+
+					if (nextTextField) {
+						nextTextField.focus();
+					} else if (nextEmailField) {
+						nextEmailField.focus();
 					}
 				}
 				self.isAnimating = false;
