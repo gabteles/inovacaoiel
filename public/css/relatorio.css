@@ -352,10 +352,10 @@ body {
 
 .general-graph-virtual-area {
   position: absolute;
-  top: 56px;
-  left: 98px;
-  right: 46px;
-  bottom: 90px;
+  top: 11%;
+  left: 16%;
+  right: 7.5%;
+  bottom: 17.4%;
 }
 
 .general-graph-pointer {
