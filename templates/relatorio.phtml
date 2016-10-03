@@ -118,9 +118,17 @@
           <div class="row">
             <div class="small-12 large-12 columns">
               <p class="sidebar-description text-justify">
-                Você prioriza atualmente a inovação em <strong>PROCESSOS</strong>.
+                Você prioriza atualmente a inovação
+                  <?php
+                    switch ($innovationPriorityIndex) {
+                      case 0: echo 'em <strong>PRODUTOS</strong>'; break;
+                      case 1: echo 'em <strong>PROCESSOS</strong>'; break;
+                      case 2: echo 'em <strong>MARKETING</strong>'; break;
+                      case 3: echo '<strong>ORGANIZACIONAL</strong>'; break;
+                    }
+                  ?>.
                 Seu score nos resultados com esse tipo de inovação ficou em <strong>
-                35% (baixo)</strong>
+                <?= $innovationTypesScores[$innovationPriorityIndex] ?>% (<?= $innovationTypesScores[$innovationPriorityIndex] < 70 ? 'baixo' : 'alto' ?>)</strong>
               </p>
             </div>
           </div>
@@ -270,7 +278,22 @@
                 essenciais à inovação.
               </p>
               <p class="sidebar-description text-justify">
-                Maior escore: <strong><br class="show-for-small-only"/>PESSOAS ORIENTADAS À INOVAÇÃO</strong>
+                Maior escore: <strong>
+                <?php
+                  switch ($highestInnovativenessScoreIndex) {
+                  case 0: echo 'APRENDIZAGEM ORGANIZACIONAL'; break;
+                  case 1: echo 'LIDERANÇA COMPROMETIDA COM A INOVAÇÃO '; break;
+                  case 2: echo 'CULTURA DE INOVAÇÃO'; break;
+                  case 3: echo 'MARKETING PARA INOVAÇÃO'; break;
+                  case 4: echo 'ESTRATÉGIA ORIENTADA À INOVAÇÃO'; break;
+                  case 5: echo 'PESSOAS ORIENTADAS À INOVAÇÃO'; break;
+                  case 6: echo 'ESTRUTURA FAVORÁVEL À INOVAÇÃO'; break;
+                  case 7: echo 'PROCESSOS HABILITADORES DA INOVAÇÃO'; break;
+                  case 8: echo 'RECURSOS FINANCEIROS DISPONÍVEIS P/ INOVAÇÃO'; break;
+                  case 9: echo 'RELAÇÃO COM O AMBIENTE EXTERNO'; break;
+                  };
+                ?>
+                </strong>
               </p>
             </div>
           </div>
