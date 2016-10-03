@@ -375,7 +375,8 @@ button.fs-continue,
 }
 
 .fs-fields > li .fs-radio-custom span:hover,
-.fs-fields .fs-checkbox-group input[type="checkbox"]:checked + label {
+.fs-fields .fs-checkbox-group input[type="checkbox"]:checked + label,
+.fs-fields input[type="radio"]:checked:not(.sexy-radio) + label {
 	color: #fffed8;
 	background: #269CA9;
 }

@@ -232,7 +232,7 @@
 	 * jumps to the next field
 	 */
 	FForm.prototype._nextField = function( backto ) {
-		if( this.isLastStep || !this._validate() || this.isAnimating ) {
+		if( this.isLastStep || (backto === undefined && !this._validate()) || this.isAnimating ) {
 			return false;
 		}
 		this.isAnimating = true;
@@ -418,7 +418,9 @@
 	// TODO: this is a very basic validation function. Only checks for required fields..
 	FForm.prototype._validate = function() {
 		var fld = this.fields[ this.current ],
-			inputs = fld.querySelectorAll( 'input[required]' ) || fld.querySelectorAll( 'textarea[required]' ) || fld.querySelectorAll( 'select[required]' ),
+			inputs = fld.querySelectorAll( 'input[required]' ) ||
+							 fld.querySelectorAll( 'textarea[required]' ) ||
+							 fld.querySelectorAll( 'select[required]' ),
 			error;
 
 		if( !inputs || !inputs.length ) return true;
