@@ -116,6 +116,7 @@
 
 		// continue button (jump to next field)
 		this.ctrlContinue = createElement( 'button', { cName : 'fs-continue', inner : 'CONTINUAR', appendTo : this.ctrls } );
+		this.ctrlBack = createElement( 'button', { cName : 'fs-back', inner : 'VOLTAR', appendTo : this.ctrls } );
 		this._showCtrl( this.ctrlContinue );
 
 		// navigation dots
@@ -165,6 +166,11 @@
 	 */
 	FForm.prototype._initEvents = function() {
 		var self = this;
+
+		// show last field
+		this.ctrlBack.addEventListener( 'click', function() {
+			self._showField(self.current - 1);
+		} );
 
 		// show next field
 		this.ctrlContinue.addEventListener( 'click', function() {
