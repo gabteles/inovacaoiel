@@ -25,7 +25,7 @@ return [
 
         // Mailer Settings
         'mailer' => [
-            'type' => 'sendmail', // Can be 'sendmail' or 'smtp'
+            'type' => 'smtp', // Can be 'sendmail' or 'smtp'
             'debug' => 'true',
 
             // SMTP settings. Fill if using 'type' => 'smtp'
@@ -36,9 +36,9 @@ return [
             'smtp-secure' => 'tls',
             'port' => 587,
 
-            'mail-from' => 'sample@iel.com.br',
+            'mail-from' => 'inovacaoiel@gmail.com',
             'mail-from-name' => 'Inovação IEL',
-            'reply-to' => 'sample@iel.com.br',
+            'reply-to' => 'inovacaoiel@iel.com',
             'reply-to-name' => 'Inovação IEL'
         ]
     ],
