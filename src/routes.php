@@ -36,6 +36,45 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     return $this->renderer->render($response, 'relatorio-nao-encontrado.phtml', []);
   }
 
+  $responses = [];
+
+  for ($i = 4; $i <= 20; $i++) {
+    $responses[$i] = $form->responses()->where('question_number', $i)->findOne()->response;
+  }
+
+  //=======================================
+  // SECTION A
+  //=======================================
+  $xAxisSum = 0;
+  $yAxisSum = 0;
+
+  for ($i = 7; $i <= 16; $i++) {
+    $yAxisSum += $responses[$i];
+  }
+
+  for ($i = 17; $i <= 20; $i++) {
+    $xAxisSum += $responses[$i];
+  }
+
+  $xAxisValue = (100 * $xAxisSum / 24.0);
+  $yAxisValue = (100 * $yAxisSum / 60.0);
+
+  if (($xAxisValue < 20) || ($yAxisValue < 20)) {
+    $generalInnovationScore = 1;
+  } elseif (($xAxisValue < 40) || ($yAxisValue < 40)) {
+    $generalInnovationScore = 2;
+  } elseif (($xAxisValue < 60) || ($yAxisValue < 60)) {
+    $generalInnovationScore = 3;
+  } elseif (($xAxisValue < 80) || ($yAxisValue < 80)) {
+    $generalInnovationScore = 4;
+  } else {
+    $generalInnovationScore = 5;
+  }
+
+
+  //=======================================
+  // SECTION B
+  //=======================================
 
   $priorityMatrix = [
     [[1,0,0,0], [0,1,1,0], [0,0,1,0], [0,0,0,1]],
@@ -46,7 +85,7 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
   $innovationPriorities = [0,0,0,0];
 
   for ($i = 4; $i <= 6; $i++) {
-    $res = $form->responses()->where('question_number', $i)->findOne()->response;
+    $res = $responses[$i];
 
     for ($j = 0 ; $j < 4; $j++) {
       $innovationPriorities[$j] += $priorityMatrix[$i - 4][$res][$j];
@@ -60,19 +99,6 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     }
   }
 
-  $innovativenessScores = [];
-  $highestInnovativenessScore = 0;
-  $highestInnovativenessScoreIndex = 0;
-
-  for ($i = 7; $i <= 16; $i++) {
-    $j = $i - 7;
-    $innovativenessScores[$j] = calculateAbsoluteScore($form->responses(), $i);
-
-    if ($innovativenessScores[$j] > $highestInnovativenessScore) {
-      $highestInnovativenessScore = $innovativenessScores[$j];
-      $highestInnovativenessScoreIndex = $j;
-    }
-  }
 
   $innovationTypesScores = [];
   $innovationTypesHighestScore = 0;
@@ -80,7 +106,7 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 
   for ($i = 17; $i <= 20; $i++) {
     $j = $i - 17;
-    $innovationTypesScores[$j] = calculateAbsoluteScore($form->responses(), $i);
+    $innovationTypesScores[$j] = calculateAbsoluteScore($responses[$i]);
 
     if ($innovationTypesScores[$j] > $innovationTypesHighestScore) {
       $innovationTypesHighestScore = $innovationTypesScores[$j];
@@ -88,8 +114,30 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     }
   }
 
+  //=======================================
+  // SECTION C
+  //=======================================
+
+  $innovativenessScores = [];
+  $highestInnovativenessScore = 0;
+  $highestInnovativenessScoreIndex = 0;
+
+  for ($i = 7; $i <= 16; $i++) {
+    $j = $i - 7;
+    $innovativenessScores[$j] = calculateAbsoluteScore($responses[$i]);
+
+    if ($innovativenessScores[$j] > $highestInnovativenessScore) {
+      $highestInnovativenessScore = $innovativenessScores[$j];
+      $highestInnovativenessScoreIndex = $j;
+    }
+  }
+
   // Render report
   return $this->renderer->render($response, 'relatorio.phtml', [
+    'generalInnovationScore' => $generalInnovationScore,
+    'xAxisValue' => $xAxisValue,
+    'yAxisValue' => $yAxisValue,
+
     'innovationPriorityIndex' => $innovationPriorityIndex,
 
     'innovationTypesScores' => $innovationTypesScores,

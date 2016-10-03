@@ -7,8 +7,7 @@ function siteURL() {
   return $protocol . $domainName;
 }
 
-function calculateAbsoluteScore($questions, $questionNumber) {
-  $response = $questions->where('question_number', $questionNumber)->findOne()->response;
+function calculateAbsoluteScore($response) {
   return round(100 * $response / 6.0);
 }
 
