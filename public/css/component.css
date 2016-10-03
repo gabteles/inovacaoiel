@@ -6,6 +6,8 @@
 	color: #fff;
 }
 
+
+
 .overview .fs-form-wrap {
 	height: auto;
 }
@@ -704,12 +706,12 @@ button.fs-back {
 	position: fixed;
 	right: 0;
 	bottom: 0;
-	margin: 0 10px 70px 0;
+	margin: 0 200px 10px 0;
 	font-size: 1.25em;
 	z-index: 99;
 	font-weight: 100;
 	color: white;
-	background: rgba(255, 255, 255, 0.5);
+	background: #83B8C5;
 	padding: 0.6em 2.5em;
 	border: 3px solid white;
 	border-radius: 40px;
@@ -854,8 +856,23 @@ input[type=text]::-ms-clear {
     display: none;
 }
 
+@media (min-width: 52.5em) {
+	button.fs-continue::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: '';
+		text-align: center;
+		font-size: 1em;
+		line-height: 50px;
+		color: #00a59e;
+	}
+}
+
 /* Adjust form for smaller screens */
-@media screen and (max-width: 52.5em) {
+@media (max-width: 52.5em) {
 	body {
 		min-height: 500px;
 	}
@@ -898,7 +915,7 @@ input[type=text]::-ms-clear {
 		right: 25px;
 	}
 
-	button.fs-continue, button.fs-back {
+	button.fs-continue{
 		right: 20px;
 		bottom: 20px;
 		margin: 0;
@@ -909,19 +926,42 @@ input[type=text]::-ms-clear {
 		font-size: 2em;
 		color: transparent;
 	}
-	button.fs-continue::before, button.fs-back::before {
+	button.fs-back {
+		right: 80px;
+		bottom: 20px;
+		margin: 0;
+		padding: 50px 0 0 50px;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		font-size: 2em;
+		color: transparent;
+	}
+	button.fs-continue::before {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		content: '\27A1';
+		content: '\21E8';
 		text-align: center;
 		font-size: 1em;
 		line-height: 50px;
 		color: #00a59e;
 	}
-
+	
+	button.fs-back::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		content: '\21E6' !important;
+		text-align: center;
+		font-size: 1em;
+		line-height: 50px;
+		color: white;
+	}
 	.fs-continue::after, .fs-back::after {
 		content: '';
 	}
@@ -935,6 +975,8 @@ input[type=text]::-ms-clear {
     padding-top: 50px;
 	}
 }
+
+
 
 .sexy-radio-group {
 	display: table;
