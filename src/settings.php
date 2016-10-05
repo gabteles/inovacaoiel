@@ -29,16 +29,16 @@ return [
             'debug' => 'true',
 
             // SMTP settings. Fill if using 'type' => 'smtp'
-            'host' => 'smtp.gmail.com',
+            'host' => 'smtp.live.com',
             'smtp-auth' => true,
-            'username' => 'inovacaoielapp@gmail.com',
-            'password' => 'inovacaoiel4pp',
+            'username' => 'inovacaoiel@outlook.com.br',
+            'password' => 'inovacao.iel',
             'smtp-secure' => 'tls',
-            'port' => 587,
+            'port' => 465,
 
-            'mail-from' => 'inovacaoielapp@gmail.com',
+            'mail-from' => 'inovacaoiel@outlook.com.br',
             'mail-from-name' => 'Inovação IEL',
-            'reply-to' => 'inovacaoielapp@gmail.com',
+            'reply-to' => 'inovacaoiel@outlook.com.br',
             'reply-to-name' => 'Inovação IEL'
         ]
     ],
