@@ -29,12 +29,12 @@ return [
             'debug' => 'true',
 
             // SMTP settings. Fill if using 'type' => 'smtp'
-            'host' => 'smtp.live.com',
+            'host' => 'smtp-mail.outlook.com',
             'smtp-auth' => true,
             'username' => 'inovacaoiel@outlook.com.br',
             'password' => 'inovacao.iel',
             'smtp-secure' => 'tls',
-            'port' => 465,
+            'port' => 587,
 
             'mail-from' => 'inovacaoiel@outlook.com.br',
             'mail-from-name' => 'Inovação IEL',
