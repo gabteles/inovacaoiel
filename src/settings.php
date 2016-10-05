@@ -25,20 +25,20 @@ return [
 
         // Mailer Settings
         'mailer' => [
-            'type' => 'sendmail', // Can be 'sendmail' or 'smtp'
+            'type' => 'smtp', // Can be 'sendmail' or 'smtp'
             'debug' => 'true',
 
             // SMTP settings. Fill if using 'type' => 'smtp'
             'host' => 'smtp.gmail.com',
             'smtp-auth' => true,
-            'username' => 'email',
-            'password' => 'secret',
+            'username' => 'inovacaoielapp@gmail.com',
+            'password' => 'inovacaoiel4pp',
             'smtp-secure' => 'tls',
             'port' => 587,
 
-            'mail-from' => 'sample@iel.com.br',
+            'mail-from' => 'inovacaoielapp@gmail.com',
             'mail-from-name' => 'Inovação IEL',
-            'reply-to' => 'sample@iel.com.br',
+            'reply-to' => 'inovacaoielapp@gmail.com',
             'reply-to-name' => 'Inovação IEL'
         ]
     ],
