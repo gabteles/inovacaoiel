@@ -78,7 +78,7 @@
                 </div>
                 <div class="content-container fs-anim-lower" style="margin-bottom:80px;">
                   <div class="fs-radio-group fs-radio-custom fs-checkbox-group fs-map clearfix">
-                    <input type="hidden" name="q2" id="state-selection"/>
+                    <input required type="hidden" name="q2" id="state-selection"/>
 
                     <div class="show-mobile">
                       <div class="cf">
@@ -89,7 +89,7 @@
                         <span class="uf-area"><input type="checkbox" id="tp-4" value="4"><label for="tp-4">Sudeste</label></span>
                         <span class="uf-area"><input type="checkbox" id="tp-5" value="5"><label for="tp-5">Sul</label></span>
                       </div>
-                      <span class="uf"><input required type="checkbox" id="q2-1" value="ac"><label for="q2-1">AC</label></span>
+                      <span class="uf"><input type="checkbox" id="q2-1" value="ac"><label for="q2-1">AC</label></span>
                       <span class="uf"><input type="checkbox" id="q2-2" value="al"><label for="q2-2">AL</label></span>
                       <span class="uf"><input type="checkbox" id="q2-3" value="am"><label for="q2-3">AM</label></span>
                       <span class="uf"><input type="checkbox" id="q2-4" value="ap"><label for="q2-4">AP</label></span>
@@ -618,6 +618,7 @@
             if (stateIndex == -1) {
               states += (states.length) ? ',' + state : state;
             } else {
+              states = states.replace(state, '');
               states = states.replace(',' + state, '');
               states = states.replace(state + ',', '');
             }
@@ -636,7 +637,6 @@
 
               for (var j = 0; j < area.length; j++) {
                 var state = areas[i][j];
-
                 if (checkedStates.indexOf(state) == -1) {
                   areaChecked = false;
                   break;
@@ -645,6 +645,10 @@
 
               var id = ("tp-" + i);
               var checkbox = document.getElementById(id);
+              checkbox.checked = areaChecked;
+
+              id = ("tp-" + (i + 6));
+              checkbox = document.getElementById(id);
               checkbox.checked = areaChecked;
             }
           }
@@ -663,9 +667,9 @@
                 }
                 element.checked = true
               } else {
-                states = states.replace(state, '');
                 states = states.replace(',' + state, '');
                 states = states.replace(state + ',', '');
+                states = states.replace(state, '');
                 if (window.unhighlightMapArea) {
                   window.unhighlightMapArea(state);
                 }
