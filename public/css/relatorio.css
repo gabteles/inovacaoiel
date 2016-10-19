@@ -3,15 +3,19 @@ body {
 }
 
 .light-background {
-  background: rgba(96, 170, 182, 0.64);
+  /*background: rgba(96, 170, 182, 0.64);*/
+}
+
+.b-area {
+  padding-top:20px;
 }
 
 .sidebar {
-  background: #EFF7F8;
-  color: #11627F;
+  /*background: #EFF7F8;*/
+  color: #FFF;
   padding-top: 25px;
   text-align: center;
-  border-top: 3px solid #11627f;
+  /*border-top: 5px solid #FFF;*/
 }
 
 .sidebar .sidebar-title {
@@ -20,14 +24,21 @@ body {
   line-height: 5rem;
 }
 
+.new-title-header {
+  margin: 0px 13px !important; 
+  border-top: 6px solid #FFF  !important; 
+  padding-top: 21px  !important; 
+  margin-top: -24px  !important;
+}
+
 .sidebar .sidebar-subtitle {
   text-transform: uppercase;
-  padding: 5px 10px 0 0;
-  font-size: 1.2rem;
+  padding: 0px 0px 0 0;
+  font-size: 1rem;
 }
 
 .sidebar .sidebar-description {
-  padding: 1rem 0 0 1.2rem;
+  padding: 1rem 1.4rem 0 1.2rem;
   font-size: 1rem;
   line-height: 140%;
 }
@@ -420,6 +431,11 @@ body {
 
   .sidebar {
     padding-right: 25px;
+    border-top: 5px solid #FFF;
+  }
+
+  .sidebar-description {
+    padding: 1rem 1.4rem 0 0.5rem !important;
   }
 
   #progresses {
