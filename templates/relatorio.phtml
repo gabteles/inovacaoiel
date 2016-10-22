@@ -304,96 +304,186 @@
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-1 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[0] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[0] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[0] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[0] ?>" <?= $highestInnovativenessScoreIndex == 0 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[0] ?>" <?= ($innovativenessScores[0] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4 large-order-3 columns graph-title">
-                  <span>Aprendizagem Organizacional (<?= $innovativenessScores[0] ?>%)</span>
+                  <span>Aprendizagem Organizacional  (<?php
+                      if ($innovativenessScores[0] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[0] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-1 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[2] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[2] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[2] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[2] ?>" <?= $highestInnovativenessScoreIndex == 2 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[2] ?>" <?= ($innovativenessScores[2] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4 large-order-3 columns graph-title">
-                  <span>Cultura de Inovação(<?= $innovativenessScores[2] ?>%)</span>
+                  <span>Cultura de Inovação (<?php
+                      if ($innovativenessScores[2] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[2] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3  large-order-1  columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[4] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[4] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[4] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5  large-order-2  columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[4] ?>" <?= $highestInnovativenessScoreIndex == 4 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[4] ?>" <?= ($innovativenessScores[4] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4  large-order-3  columns graph-title">
-                  <span>Estratégia Orientada à Inovação (<?= $innovativenessScores[4] ?>%)</span>
+                  <span>Estratégia Orientada à Inovação  (<?php
+                      if ($innovativenessScores[4] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[4] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3  large-order-1  columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[6] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[6] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[6] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5  large-order-2  columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[6] ?>" <?= $highestInnovativenessScoreIndex == 6 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[6] ?>" <?= ($innovativenessScores[6] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4  large-order-3  columns graph-title">
-                  <span>Estrutura Favorável à Inovação (<?= $innovativenessScores[6] ?>%)</span>
+                  <span>Estrutura Favorável à Inovação  (<?php
+                      if ($innovativenessScores[6] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[6] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-2 large-3  large-order-1  columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[8] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[8] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[8] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
                 <div class="small-12 medium-12 small-order-3 large-5  large-order-2  columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[8] ?>" <?= $highestInnovativenessScoreIndex == 8 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[8] ?>" <?= ($innovativenessScores[8] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-1 large-4  large-order-3  columns graph-title">
-                  <span>Recursos Financeiros disponíveis p/ Inovação (<?= $innovativenessScores[8] ?>%)</span>
+                  <span>Recursos Financeiros disponíveis p/ Inovação  (<?php
+                      if ($innovativenessScores[8] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[8] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
               </div>
             </div>
@@ -401,95 +491,185 @@
             <div class="small-6 large-6 medium-6 columns text-right">
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1 large-5 large-order-1 columns graph-title">
-                  <span>Liderança Comprometida com a Inovação (<?= $innovativenessScores[1] ?>%)</span>
+                  <span>Liderança Comprometida com a Inovação  (<?php
+                      if ($innovativenessScores[1] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[1] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[1] ?>" <?= $highestInnovativenessScoreIndex == 1 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[1] ?>" <?= ($innovativenessScores[1] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[1] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[1] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[1] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1 large-5 large-order-1 columns graph-title">
-                  <span>Marketing para Inovação (<?= $innovativenessScores[3] ?>%)</span>
+                  <span>Marketing para Inovação  (<?php
+                      if ($innovativenessScores[3] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[3] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[3] ?>" <?= $highestInnovativenessScoreIndex == 3 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[3] ?>" <?= ($innovativenessScores[3] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2  large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[3] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[3] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[3] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1 large-5 large-order-1 columns graph-title">
-                  <span>Pessoas orientadas à Inovação (<?= $innovativenessScores[5] ?>%)</span>
+                  <span>Pessoas orientadas à Inovação  (<?php
+                      if ($innovativenessScores[5] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[5] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
                 <div class="small-12 medium-12 medium-order-1 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[5] ?>" <?= $highestInnovativenessScoreIndex == 5 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[5] ?>" <?= ($innovativenessScores[5] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[5] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[5] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[5] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1  large-5 large-order-1 columns graph-title">
-                  <span>Processos Habilitadores da Inovação (<?= $innovativenessScores[7] ?>%)</span>
+                  <span>Processos Habilitadores da Inovação  (<?php
+                      if ($innovativenessScores[7] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[7] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[7] ?>" <?= $highestInnovativenessScoreIndex == 7 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[7] ?>" <?= ($innovativenessScores[7] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2  large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[7] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[7] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[7] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
               </div>
               <div class="row graph-container">
                 <div class="small-12 medium-12 small-order-1  large-5 large-order-1 columns graph-title">
-                  <span>Relação com o ambiente externo (<?= $innovativenessScores[9] ?>%)</span>
+                  <span>Relação com o ambiente externo  (<?php
+                      if ($innovativenessScores[9] < 33) {
+                        echo 'BAIXO';
+                      } elseif ($innovativenessScores[9] < 66) {
+                        echo 'MÉDIO';
+                      } else {
+                        echo 'ALTO';
+                      }
+                    ?>)</span>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-4 large-order-2 columns text-center">
                   <div class="graph-outer">
                     <div class="graph-inner">
-                      <div class="graph" data-progress="<?= $innovativenessScores[9] ?>" <?= $highestInnovativenessScoreIndex == 9 ? 'data-highest="true"' : '' ?>>
+                      <div class="graph" data-progress="<?= $innovativenessScores[9] ?>" <?= ($innovativenessScores[9] >= 66) ? 'data-highest="true"' : '' ?>>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="small-12 medium-12 small-order-2 large-3 large-order-3 columns graph-percentage show-for-large">
                   <span class="graph-percentage-label">
-                    <span><?= $innovativenessScores[9] ?>%</span>
+                    <span>
+                      <?php
+                        if ($innovativenessScores[9] < 33) {
+                          echo 'BAIXO';
+                        } elseif ($innovativenessScores[9] < 66) {
+                          echo 'MÉDIO';
+                        } else {
+                          echo 'ALTO';
+                        }
+                      ?>
+                    </span>
                     <hr class="graph-percentage-line"/>
                   </span>
                 </div>
