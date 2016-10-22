@@ -949,7 +949,7 @@ input[type=text]::-ms-clear {
 		line-height: 50px;
 		color: #00a59e;
 	}
-	
+
 	button.fs-back::before {
 		position: absolute;
 		top: 0;
@@ -1069,6 +1069,7 @@ input[type=text]::-ms-clear {
 	.sexy-radio-group > span {
 		display: block;
 		margin-bottom: 40px;
+		min-height: 100px;
 	}
 
 	.sexy-radio, .sexy-radio + label span {
