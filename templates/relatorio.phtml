@@ -1,3 +1,18 @@
+<?php
+  $innovativenessNames = [
+    'APRENDIZAGEM ORGANIZACIONAL',
+    'LIDERANÇA COMPROMETIDA COM A INOVAÇÃO ',
+    'CULTURA DE INOVAÇÃO',
+    'MARKETING PARA INOVAÇÃO',
+    'ESTRATÉGIA ORIENTADA À INOVAÇÃO',
+    'PESSOAS ORIENTADAS À INOVAÇÃO',
+    'ESTRUTURA FAVORÁVEL À INOVAÇÃO',
+    'PROCESSOS HABILITADORES DA INOVAÇÃO',
+    'RECURSOS FINANCEIROS DISPONÍVEIS P/ INOVAÇÃO',
+    'RELAÇÃO COM O AMBIENTE EXTERNO'
+  ];
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
@@ -320,22 +335,23 @@
                 essenciais à inovação.
               </p>
               <p class="sidebar-description text-left">
-                Maior escore: <strong>
                 <?php
-                  switch ($highestInnovativenessScoreIndex) {
-                  case 0: echo 'APRENDIZAGEM ORGANIZACIONAL'; break;
-                  case 1: echo 'LIDERANÇA COMPROMETIDA COM A INOVAÇÃO '; break;
-                  case 2: echo 'CULTURA DE INOVAÇÃO'; break;
-                  case 3: echo 'MARKETING PARA INOVAÇÃO'; break;
-                  case 4: echo 'ESTRATÉGIA ORIENTADA À INOVAÇÃO'; break;
-                  case 5: echo 'PESSOAS ORIENTADAS À INOVAÇÃO'; break;
-                  case 6: echo 'ESTRUTURA FAVORÁVEL À INOVAÇÃO'; break;
-                  case 7: echo 'PROCESSOS HABILITADORES DA INOVAÇÃO'; break;
-                  case 8: echo 'RECURSOS FINANCEIROS DISPONÍVEIS P/ INOVAÇÃO'; break;
-                  case 9: echo 'RELAÇÃO COM O AMBIENTE EXTERNO'; break;
-                  };
+                  for ($i = 0; $i < 10; $i++) {
+                    $innovativenessScore = $innovativenessScores[$i];
+                    if ($innovativenessScore >= 66) {
+                      echo '<span class="innovativeness-description">' . $innovativenessNames[$i] . '</span>';
+                    }
+                  }
                 ?>
-                </strong>
+
+                <?php
+                  for ($i = 0; $i < 10; $i++) {
+                    $innovativenessScore = $innovativenessScores[$i];
+                    if ($innovativenessScore < 33) {
+                      echo '<span class="innovativeness-description">' . $innovativenessNames[$i] . '</span>';
+                    }
+                  }
+                ?>
               </p>
             </div>
           </div>
@@ -736,22 +752,23 @@
                 essenciais à inovação.
               </p>
               <p class="sidebar-description text-left">
-                Maior escore: <strong>
                 <?php
-                  switch ($highestInnovativenessScoreIndex) {
-                  case 0: echo 'APRENDIZAGEM ORGANIZACIONAL'; break;
-                  case 1: echo 'LIDERANÇA COMPROMETIDA COM A INOVAÇÃO '; break;
-                  case 2: echo 'CULTURA DE INOVAÇÃO'; break;
-                  case 3: echo 'MARKETING PARA INOVAÇÃO'; break;
-                  case 4: echo 'ESTRATÉGIA ORIENTADA À INOVAÇÃO'; break;
-                  case 5: echo 'PESSOAS ORIENTADAS À INOVAÇÃO'; break;
-                  case 6: echo 'ESTRUTURA FAVORÁVEL À INOVAÇÃO'; break;
-                  case 7: echo 'PROCESSOS HABILITADORES DA INOVAÇÃO'; break;
-                  case 8: echo 'RECURSOS FINANCEIROS DISPONÍVEIS P/ INOVAÇÃO'; break;
-                  case 9: echo 'RELAÇÃO COM O AMBIENTE EXTERNO'; break;
-                  };
+                  for ($i = 0; $i < 10; $i++) {
+                    $innovativenessScore = $innovativenessScores[$i];
+                    if ($innovativenessScore >= 66) {
+                      echo '<span class="innovativeness-description">' . $innovativenessNames[$i] . '</span>';
+                    }
+                  }
                 ?>
-                </strong>
+
+                <?php
+                  for ($i = 0; $i < 10; $i++) {
+                    $innovativenessScore = $innovativenessScores[$i];
+                    if ($innovativenessScore < 33) {
+                      echo '<span class="innovativeness-description">' . $innovativenessNames[$i] . '</span>';
+                    }
+                  }
+                ?>
               </p>
             </div>
           </div>
@@ -872,17 +889,19 @@
         </div>
       </section>
 
-      <section class="row" id="book-a-visit">
-        <div class="small-12 large-12 columns">
-          <h1>
-            <span>Agende uma visita e veja como você pode inovar mais, na</span>
-            <em>prática!</em>
-          </h1>
-          <h2>Cristiane Iata</h2>
-          <h3>cristiane@ielsc.org.br</h3>
-          <h3>(43) 3321-1254</h3>
-        </div>
-      </section>
+      <?php if (isset($contact) && ($contact != null)): ?>
+        <section class="row" id="book-a-visit">
+          <div class="small-12 large-12 columns">
+            <h1>
+              <span>Agende uma visita e veja como você pode inovar mais, na</span>
+              <em>prática!</em>
+            </h1>
+            <h2><?= $contact->name ?></h2>
+            <h3><?= $contact->email ?></h3>
+            <h3><?= $contact->phone ?></h3>
+          </div>
+        </section>
+      <?php endif; ?>
 
       <section class="row expanded align-middle text-left" id="footer">
         <div class="small-12 large-3 medium-3 medium-offset-1 large-offset-1 ">

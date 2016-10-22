@@ -2,6 +2,7 @@
 
 require __DIR__ . '/models/form_submit.php';
 require __DIR__ . '/models/question_response.php';
+require __DIR__ . '/models/report_contact.php';
 
 // Routes
 
@@ -42,6 +43,8 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     $responses[$i] = $form->responses()->where('question_number', $i)->findOne()->response;
   }
 
+  # UF
+  $state = $form->responses()->where('question_number', 24)->findOne()->response;
   //=======================================
   // SECTION A
   //=======================================
@@ -132,6 +135,13 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     }
   }
 
+  //=======================================
+  // CONTACT
+  //=======================================
+  $contact = Model::factory('ReportContact')
+    ->where('uf', $state)
+    ->find_one();
+
   // Render report
   return $this->renderer->render($response, 'relatorio.phtml', [
     'generalInnovationScore' => $generalInnovationScore,
@@ -145,7 +155,9 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     'innovationTypesHighestScoreIndex' => $innovationTypesHighestScoreIndex,
 
     'innovativenessScores' => $innovativenessScores,
-    'highestInnovativenessScoreIndex' => $highestInnovativenessScoreIndex
+    'highestInnovativenessScoreIndex' => $highestInnovativenessScoreIndex,
+
+    'contact' => $contact
   ]);
 });
 
@@ -153,14 +165,6 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 /*----------------------------------------------------------------------------*
  * Form submission route.                                                     *
  *----------------------------------------------------------------------------*/
-$app->get('/relatorio-tmp', function ($request, $response, $args) {
-  $basePath = siteURL();
-
-  return $this->renderer->render($response, 'template-email.phtml', [
-    'name' => "João da Silva",
-    'formUrl' => "{$basePath}/relatorio/1234567890"
-  ]);
-});
 $app->post('/relatorio', function ($request, $response, $args) {
   // Get request body
   $parsedBody = $request->getParsedBody();

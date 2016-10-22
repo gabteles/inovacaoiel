@@ -25,9 +25,9 @@ body {
 }
 
 .new-title-header {
-  margin: 0px 13px !important; 
-  border-top: 6px solid #FFF  !important; 
-  padding-top: 21px  !important; 
+  margin: 0px 13px !important;
+  border-top: 6px solid #FFF  !important;
+  padding-top: 21px  !important;
   margin-top: -24px  !important;
 }
 
@@ -101,6 +101,11 @@ body {
   text-align: justify;
   font-size:0.8rem;
   line-height: 140%;
+}
+
+.innovativeness-description {
+  display: block;
+  font-size: 0.75em;
 }
 
 .graph-container {
