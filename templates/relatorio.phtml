@@ -157,7 +157,15 @@
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= ($innovationPriorityIndex == 0) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[0] ?>%">
-                  <?= $innovationTypesScores[0] ?>%
+                  <?php
+                    if ($innovationTypesScores[0] < 33) {
+                      echo 'BAIXO';
+                    } elseif ($innovationTypesScores[0] < 66) {
+                      echo 'MÉDIO';
+                    } else {
+                      echo 'ALTO';
+                    }
+                  ?>
                 </div>
 
                 <p class="progress-description">
@@ -180,7 +188,15 @@
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= ($innovationPriorityIndex == 1) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[1] ?>%">
-                  <?= $innovationTypesScores[1] ?>%
+                  <?php
+                    if ($innovationTypesScores[1] < 33) {
+                      echo 'BAIXO';
+                    } elseif ($innovationTypesScores[1] < 66) {
+                      echo 'MÉDIO';
+                    } else {
+                      echo 'ALTO';
+                    }
+                  ?>
                 </div>
 
                 <p class="progress-description">
@@ -204,7 +220,15 @@
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= ($innovationPriorityIndex == 2) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[2] ?>%">
-                  <?= $innovationTypesScores[2] ?>%
+                  <?php
+                    if ($innovationTypesScores[2] < 33) {
+                      echo 'BAIXO';
+                    } elseif ($innovationTypesScores[2] < 66) {
+                      echo 'MÉDIO';
+                    } else {
+                      echo 'ALTO';
+                    }
+                  ?>
                 </div>
 
                 <p class="progress-description">
@@ -228,7 +252,15 @@
             <div class="small-8 large-8 columns">
               <div class="progress-bar-container">
                 <div class="progress-bar <?= ($innovationPriorityIndex == 3) ? 'danger' : '' ?>" style="width: <?= $innovationTypesScores[3] ?>%">
-                  <?= $innovationTypesScores[3] ?>%
+                  <?php
+                    if ($innovationTypesScores[3] < 33) {
+                      echo 'BAIXO';
+                    } elseif ($innovationTypesScores[3] < 66) {
+                      echo 'MÉDIO';
+                    } else {
+                      echo 'ALTO';
+                    }
+                  ?>
                 </div>
 
                 <p class="progress-description">
