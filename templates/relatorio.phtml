@@ -753,18 +753,28 @@
               </p>
               <p class="sidebar-description text-left">
                 <?php
+                  $first = true;
                   for ($i = 0; $i < 10; $i++) {
                     $innovativenessScore = $innovativenessScores[$i];
                     if ($innovativenessScore >= 66) {
+                      if ($first) {
+                        echo '<img src="/img/iel/relatorio/hands-05.png" width="48px"/>';
+                        $first = false;
+                      }
                       echo '<span class="innovativeness-description">' . $innovativenessNames[$i] . '</span>';
                     }
                   }
                 ?>
 
                 <?php
+                  $first = true;
                   for ($i = 0; $i < 10; $i++) {
                     $innovativenessScore = $innovativenessScores[$i];
                     if ($innovativenessScore < 33) {
+                      if ($first) {
+                        echo '<img src="/img/iel/relatorio/hands-06.png" width="48px"/>';
+                        $first = false;
+                      }
                       echo '<span class="innovativeness-description">' . $innovativenessNames[$i] . '</span>';
                     }
                   }
