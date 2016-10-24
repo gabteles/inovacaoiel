@@ -62,16 +62,12 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
   $xAxisValue = (100 * $xAxisSum / 24.0);
   $yAxisValue = (100 * $yAxisSum / 60.0);
 
-  if (($xAxisValue < 20) || ($yAxisValue < 20)) {
-    $generalInnovationScore = 1;
-  } elseif (($xAxisValue < 40) || ($yAxisValue < 40)) {
-    $generalInnovationScore = 2;
-  } elseif (($xAxisValue < 60) || ($yAxisValue < 60)) {
-    $generalInnovationScore = 3;
-  } elseif (($xAxisValue < 80) || ($yAxisValue < 80)) {
-    $generalInnovationScore = 4;
+  if (($xAxisValue < 33) || ($yAxisValue < 33)) {
+    $generalInnovationScore = "BAIXA";
+  } elseif (($xAxisValue < 66) || ($yAxisValue < 66)) {
+    $generalInnovationScore = "MÉDIA";
   } else {
-    $generalInnovationScore = 5;
+    $generalInnovationScore = "ALTA";
   }
 
 

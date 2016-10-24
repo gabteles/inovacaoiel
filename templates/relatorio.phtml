@@ -48,11 +48,8 @@
         <div class="small-12 large-6 medium-12 columns" id="title-label">
           <h1>SUA CAPACIDADE</h1>
           <h2>DE GESTÃO DA INOVAÇÃO</h2>
-          <h3>MÉDIA</h3>
+          <h3><?= $generalInnovationScore ?></h3>
         </div>
-<!--         <div class="small-4 large-2 medium-2 columns" id="title-level-right">
-          <h1 id="title-level"><?= $generalInnovationScore ?></h1>
-        </div> -->
       </div>
 
       <section class="row expanded light-background" id="graph">
@@ -78,37 +75,16 @@
         <div class="large-8 medium-8 small-12 columns ">
           <div class="general-graph-container">
             <div class="general-graph-virtual-area">
-              <div class="general-graph-pointer" style="left: <?= $xAxisValue ?>%; bottom: <?= $yAxisValue ?>%;"><?= $generalInnovationScore ?></div>
+              <div class="general-graph-pointer" style="left: <?= $xAxisValue ?>%; bottom: <?= $yAxisValue ?>%;">
+              </div>
             </div>
-            <img src="/img/iel/relatorio/grafico.png" />
+            <a href="#book-a-visit">
+              <img src="/img/iel/relatorio/grafico.png" />
+            </a>
+            <img src="/img/iel/relatorio/grafico-top.png" class="general-graph-top" />
           </div>
 
           <br/>
-          <p id="graph-description" class="text-justify">
-            <?php if (($xAxisValue >= 70) && ($yAxisValue >= 70)): ?>
-              De acordo com as respostas, sua empresa apresenta <strong>boa pontuação (acima de 66%)</strong>
-              em suas práticas fundamentais de inovação e <strong>alta pontuação (acima de 66%)</strong> nos
-              itens de resultados de inovação o que sinaliza que a empresa está no caminho certo da inovação,
-              parabéns! <strong>Veja abaixo os destaques das sua avaliação.</strong>
-            <?php elseif (($xAxisValue < 70) && ($yAxisValue < 70)): ?>
-              De acordo com as respostas, sua empresa apresenta <strong>baixa/média pontuação (abaixo de 66%)</strong>
-              em suas práticas fundamentais de inovação e <strong>baixa/média pontuação (abaixo de 66%)</strong> nos
-              itens de resultados de inovação. Este cenário e considerado o mais comum no universo de empresas,
-              no qual, de modo objetivo, não existe um contexto interno favorável à inovação e isso fatalmente
-              resulta na falta (ou baixo fluxo) de soluções inovadoras indo ao mercado. <strong>Veja abaixo os
-              destaques das sua avaliação.</strong>
-            <?php elseif (($xAxisValue >= 70) && ($yAxisValue < 70)): ?>
-              De acordo com suas respostas, sua empresa apresenta <strong>boa pontuação (acima de 66%) em suas  práticas internas de inovação</strong>, o que geralmente habilita com que inovações surjam e sejam  transformadas efetivamente em projetos e, quem sabe, em inovação real para o negócio. No entanto, sua empresa <strong>obteve baixa/média pontuação (abaixo de 66%) nos itens de resultados de inovação.</strong> Algumas são as explicações para este cenário, mas, de modo amplo há barreiras internas que estão impedindo que uma aparente cultura inovadora interna gere resultados concretos.
-            <?php elseif (($xAxisValue < 70) && ($yAxisValue >= 70)): ?>
-              De acordo com as respostas, sua empresa apresenta <strong>baixa/média pontuação (abaixo de 66%)</strong>
-              em suas práticas fundamentais de inovação e <strong>alta pontuação (acima de 66%)</strong> nos itens
-              de resultados de inovação. Este caso ocorre, em geral, quando as inovações geradas nos últimos tempos
-              são advindas de oportunidades de mercado pontuais, por esforço efêmero (curta duração) da equipe ou
-              qualquer outra situação de mercado favorável. Este cenário - baixa/média capacidade, altos resultados - é
-              raro e pode se esperar que ele não seja duradouro, não havendo sustentação da inovação na empresa por
-              meio de processos sistemáticos de inovação. <strong>Veja abaixo os destaques das sua avaliação.</strong>
-            <?php endif; ?>
-          </p>
         </div>
         <div class="small-12 large-4 medium-4 columns sidebar show-for-medium">
           <div class="row new-title-header">
@@ -126,6 +102,41 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="row expanded" >
+        <div class="small-12 medium-10 medium-offset-1 large-8 large-offset-2 columns">
+          <p id="graph-description" class="text-center">
+            <?php if (($xAxisValue >= 66) && ($yAxisValue >= 66)): ?>
+              De acordo com as respostas, sua empresa apresenta <strong>boa pontuação (acima de 66%)</strong>
+              em suas práticas fundamentais de inovação e <strong>alta pontuação (acima de 66%)</strong> nos
+              itens de resultados de inovação o que sinaliza que a empresa está no caminho certo da inovação,
+              parabéns! <strong>Veja abaixo os destaques das sua avaliação.</strong>
+            <?php elseif (($xAxisValue < 66) && ($yAxisValue < 66)): ?>
+              De acordo com as respostas, sua empresa apresenta <strong>baixa/média pontuação (abaixo de 66%)</strong>
+              em suas práticas fundamentais de inovação e <strong>baixa/média pontuação (abaixo de 66%)</strong> nos
+              itens de resultados de inovação. Este cenário e considerado o mais comum no universo de empresas,
+              no qual, de modo objetivo, não existe um contexto interno favorável à inovação e isso fatalmente
+              resulta na falta (ou baixo fluxo) de soluções inovadoras indo ao mercado. <strong>Veja abaixo os
+              destaques das sua avaliação.</strong>
+            <?php elseif (($xAxisValue >= 66) && ($yAxisValue < 66)): ?>
+              De acordo com suas respostas, sua empresa apresenta <strong>boa pontuação (acima de 66%) em suas  práticas
+              internas de inovação</strong>, o que geralmente habilita com que inovações surjam e sejam  transformadas
+              efetivamente em projetos e, quem sabe, em inovação real para o negócio. No entanto, sua empresa
+              <strong>obteve baixa/média pontuação (abaixo de 66%) nos itens de resultados de inovação.</strong> Algumas
+              são as explicações para este cenário, mas, de modo amplo há barreiras internas que estão impedindo que uma
+              aparente cultura inovadora interna gere resultados concretos.
+            <?php elseif (($xAxisValue < 66) && ($yAxisValue >= 66)): ?>
+              De acordo com as respostas, sua empresa apresenta <strong>baixa/média pontuação (abaixo de 66%)</strong>
+              em suas práticas fundamentais de inovação e <strong>alta pontuação (acima de 66%)</strong> nos itens
+              de resultados de inovação. Este caso ocorre, em geral, quando as inovações geradas nos últimos tempos
+              são advindas de oportunidades de mercado pontuais, por esforço efêmero (curta duração) da equipe ou
+              qualquer outra situação de mercado favorável. Este cenário - baixa/média capacidade, altos resultados - é
+              raro e pode se esperar que ele não seja duradouro, não havendo sustentação da inovação na empresa por
+              meio de processos sistemáticos de inovação. <strong>Veja abaixo os destaques das sua avaliação.</strong>
+            <?php endif; ?>
+          </p>
         </div>
       </section>
 

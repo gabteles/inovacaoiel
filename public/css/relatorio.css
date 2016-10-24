@@ -374,24 +374,30 @@ body {
 
 .general-graph-virtual-area {
   position: absolute;
-  top: 11%;
-  left: 16%;
-  right: 7.5%;
-  bottom: 17.4%;
+  bottom: 8.6%;
+  top: 43.6%;
+  left: 6.2%;
+  right: 43.8%;
+}
+
+.general-graph-top {
+  position: absolute;
+  bottom: 8.6%;
+  width: 50%;
+  left: 6.2%;
 }
 
 .general-graph-pointer {
   display: inline-block;
-  background: #EE9770;
-  border-radius: 50%;
   width: 30px;
   height: 30px;
-  color: #11627F;
-  font-size: 1.75em;
-  text-align: center;
-  font-weight: bold;
   position: absolute;
   transform: translate(-50%, 50%);
+  z-index: 1;
+  background: url("../img/iel/relatorio/map_pin_fill-512.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
 
