@@ -405,6 +405,9 @@ body {
 @media only screen { } /* Define mobile styles */
 
 @media  (max-width: 40em) {
+  .text-justify-mobile {
+    text-align: justify;
+  }
 
   #first-title {
     margin-top: 20px;
