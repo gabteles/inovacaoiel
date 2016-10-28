@@ -1096,7 +1096,9 @@ input[type=text]::-ms-clear {
 	}
 
 	.sexy-radio + label svg {
-		top: 0.3em;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 5px;
 	}
 
 	.sexy-radio + label .subtitle {
