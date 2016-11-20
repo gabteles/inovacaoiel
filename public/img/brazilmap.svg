@@ -49,12 +49,15 @@
     </script>
 
     <style>
+        @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
+
         .estado {
            fill: #003354;
         }
 
         .estado text {
-            font-size: 0.9em;
+            font-size: 0.7em;
+            font-family: 'Raleway', Arial, sans-serif;
         }
 
         .circle {
@@ -65,7 +68,11 @@
             fill: #254C65;
         }
 
-        a:hover, a:hover .circle, a.active, a.active .circle {
+        a:hover, a:hover .circle {
+            fill: #3CBCDE;
+        }
+
+        a.active, a.active .circle {
             fill: #07718D;
         }
 
