@@ -45,6 +45,7 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 
   # UF
   $state = $form->responses()->where('question_number', 24)->findOne()->response;
+
   //=======================================
   // SECTION A
   //=======================================
@@ -134,9 +135,9 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
   //=======================================
   // CONTACT
   //=======================================
-  $contact = Model::factory('ReportContact')
+  $contacts = Model::factory('ReportContact')
     ->where('uf', $state)
-    ->find_one();
+    ->find_many();
 
   // Render report
   return $this->renderer->render($response, 'relatorio.phtml', [
@@ -153,7 +154,7 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     'innovativenessScores' => $innovativenessScores,
     'highestInnovativenessScoreIndex' => $highestInnovativenessScoreIndex,
 
-    'contact' => $contact
+    'contacts' => $contacts
   ]);
 });
 
@@ -197,23 +198,58 @@ $app->post('/relatorio', function ($request, $response, $args) {
   // Commit
   $this->db->commit();
 
-  // Send email
-  $name = $parsedBody['q22'];
-  $email = $parsedBody['q23'];
+  // Send user email
+  $userName = $parsedBody['q22'];
+  $userEmail = $parsedBody['q23'];
+  $state = $parsedBody['q24'];
   $basePath = siteURL();
   $emailBody = $this->renderer->fetch('template-email.phtml', [
-    'name' => $name,
+    'name' => $userName,
     'formUrl' => "{$basePath}/relatorio/{$form->url}"
   ]);
 
   $mailer = $this->mailer;
-  $mailer->addAddress($email, $name);
+  $mailer->addAddress($userEmail, $userName);
   $mailer->Subject = 'Conheça seu nível de maturidade em gestão da inovação';
   $mailer->Body = $emailBody;
 
-  $this->logger->debug("Enviando email para email: {$email} ({$name})");
+  $this->logger->debug("Enviando email para: {$userEmail} ({$userName})");
   if (!$mailer->send()) {
     $this->logger->error("Erro ao enviar email: {$mailer->ErrorInfo}");
+  }
+
+  // Send consultor email
+  $contacts = Model::factory('ReportContact')
+    ->where('uf', $state)
+    ->find_many();
+
+  if ($contacts && $contacts != null && !empty($contacts)) {
+    foreach ($contacts as $contact) {
+      $userCompany = $parsedBody['q21'];
+      $userCity = $parsedBody['q25'];
+      $userPhone = $parsedBody['q26'];
+
+      $emailBody = $this->renderer->fetch('template-email-interno.phtml', [
+        'name' => $contact->name,
+        'state' => $state,
+        'userName' => $userName,
+        'userEmail' => $userEmail,
+        'userCompany' => $userCompany,
+        'userCity' => $userCity,
+        'userPhone' => $userPhone,
+        'formUrl' => "{$basePath}/relatorio/{$form->url}"
+      ]);
+
+      $mailer = $this->mailer;
+      $mailer->addAddress($contact->email, $contact->name);
+      $mailer->Subject = 'Novo relatório de capacidade de gestão da inovação';
+      $mailer->Body = $emailBody;
+
+      $this->logger->debug("Enviando email para: {$contact->email} ({$contact->name})");
+      if (!$mailer->send()) {
+        $this->logger->error("Erro ao enviar email: {$mailer->ErrorInfo}");
+      }
+    }
   }
 
   // Redirect to report URL

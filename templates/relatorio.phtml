@@ -919,16 +919,19 @@
         </div>
       </section>
 
-      <?php if (isset($contact) && ($contact != null)): ?>
+      <?php if (isset($contacts) && ($contacts != null) && (!empty($contacts))): ?>
         <section class="row" id="book-a-visit">
           <div class="small-12 large-12 columns">
             <h1>
               <span>Agende uma visita e veja como você pode inovar mais, na</span>
               <em>prática!</em>
             </h1>
-            <h2><?= $contact->name ?></h2>
-            <h3><?= $contact->email ?></h3>
-            <h3><?= $contact->phone ?></h3>
+
+            <?php foreach ($contacts as $contact): ?>
+              <h2><?= $contact->name ?></h2>
+              <h3><?= $contact->email ?></h3>
+              <h3><?= $contact->phone ?></h3>
+            <?php endforeach; ?>
           </div>
         </section>
       <?php endif; ?>
