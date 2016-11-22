@@ -226,11 +226,11 @@ $app->post('/relatorio', function ($request, $response, $args) {
     ->find_many();
 
   if ($contacts && $contacts != null && !empty($contacts)) {
-    foreach ($contacts as $contact) {
-      $userCompany = $parsedBody['q21'];
-      $userCity = $parsedBody['q25'];
-      $userPhone = $parsedBody['q26'];
+    $userCompany = $parsedBody['q21'];
+    $userCity = $parsedBody['q25'];
+    $userPhone = $parsedBody['q26'];
 
+    foreach ($contacts as $contact) {
       $emailBody = $this->renderer->fetch('template-email-interno.phtml', [
         'name' => $contact->name,
         'state' => $state,
@@ -245,7 +245,7 @@ $app->post('/relatorio', function ($request, $response, $args) {
       $mailer = call_user_func($this->mailer);
       $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-email.png', 'logo-email', 'logo-email.png');
       $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-iel.png', 'logo-iel', 'logo-iel.png');
-      $mailer->addAddress('gabz.teles@gmail.com', $contact->name);
+      $mailer->addAddress($contact->email, $contact->name);
       $mailer->Subject = 'Novo relatório de capacidade de gestão da inovação';
       $mailer->Body = $emailBody;
 
