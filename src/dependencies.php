@@ -37,29 +37,31 @@ $container['db'] = function ($c) {
 $container['mailer'] = function ($c) {
   $settings = $c->get('settings')['mailer'];
 
-  $mailer = new PHPMailer;
+  return function() use ($settings) {
+    $mailer = new PHPMailer;
 
-  if ($settings['debug']) {
-    $mailer->Debugoutput = 'html';
-    $mailer->SMTPDebug = 2;
-  }
+    if ($settings['debug']) {
+      $mailer->Debugoutput = 'html';
+      $mailer->SMTPDebug = 2;
+    }
 
-  if ($settings['type'] == 'smtp') {
-    $mailer->isSMTP();
-    $mailer->Host = $settings['host'];
-    $mailer->SMTPAuth = $settings['smtp-auth'];
-    $mailer->Username = $settings['username'];
-    $mailer->Password = $settings['password'];
-    $mailer->SMTPSecure = $settings['smtp-secure'];
-    $mailer->Port = $settings['port'];
-  } else {
-    $mailer->isSendmail();
-  }
+    if ($settings['type'] == 'smtp') {
+      $mailer->isSMTP();
+      $mailer->Host = $settings['host'];
+      $mailer->SMTPAuth = $settings['smtp-auth'];
+      $mailer->Username = $settings['username'];
+      $mailer->Password = $settings['password'];
+      $mailer->SMTPSecure = $settings['smtp-secure'];
+      $mailer->Port = $settings['port'];
+    } else {
+      $mailer->isSendmail();
+    }
 
-  $mailer->setFrom($settings['mail-from'], $settings['mail-from-name']);
-  $mailer->addReplyTo($settings['reply-to'], $settings['reply-to-name']);
-  $mailer->isHTML(true);
-  $mailer->CharSet = 'UTF-8';
+    $mailer->setFrom($settings['mail-from'], $settings['mail-from-name']);
+    $mailer->addReplyTo($settings['reply-to'], $settings['reply-to-name']);
+    $mailer->isHTML(true);
+    $mailer->CharSet = 'UTF-8';
 
-  return $mailer;
+    return $mailer;
+  };
 };

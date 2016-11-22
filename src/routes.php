@@ -208,7 +208,9 @@ $app->post('/relatorio', function ($request, $response, $args) {
     'formUrl' => "{$basePath}/relatorio/{$form->url}"
   ]);
 
-  $mailer = $this->mailer;
+  $mailer = call_user_func($this->mailer);
+  $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-email.png', 'logo-email', 'logo-email.png');
+  $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-iel.png', 'logo-iel', 'logo-iel.png');
   $mailer->addAddress($userEmail, $userName);
   $mailer->Subject = 'Conheça seu nível de maturidade em gestão da inovação';
   $mailer->Body = $emailBody;
@@ -240,8 +242,10 @@ $app->post('/relatorio', function ($request, $response, $args) {
         'formUrl' => "{$basePath}/relatorio/{$form->url}"
       ]);
 
-      $mailer = $this->mailer;
-      $mailer->addAddress($contact->email, $contact->name);
+      $mailer = call_user_func($this->mailer);
+      $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-email.png', 'logo-email', 'logo-email.png');
+      $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-iel.png', 'logo-iel', 'logo-iel.png');
+      $mailer->addAddress('gabz.teles@gmail.com', $contact->name);
       $mailer->Subject = 'Novo relatório de capacidade de gestão da inovação';
       $mailer->Body = $emailBody;
 
