@@ -1,0 +1,766 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font-",
+				"font-family"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates/index.phtml",
+			"settings":
+			{
+				"buffer_size": 53896,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "settings.php",
+			"settings":
+			{
+				"buffer_size": 1455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates/relatorio-nao-encontrado.phtml",
+			"settings":
+			{
+				"buffer_size": 1415,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates/relatorio.phtml",
+			"settings":
+			{
+				"buffer_size": 34857,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/demo.css",
+			"settings":
+			{
+				"buffer_size": 777,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 2719 files for \"voltar\"\n\n/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/js/fullscreenForm.js:\n  117  		// continue button (jump to next field)\n  118  		this.ctrlContinue = createElement( 'button', { cName : 'fs-continue', inner : 'CONTINUAR', appendTo : this.ctrls } );\n  119: 		this.ctrlBack = createElement( 'button', { cName : 'fs-back', inner : 'VOLTAR', appendTo : this.ctrls } );\n  120  \n  121  		// navigation dots\n\n1 match in 1 file\n\n\nSearching 2719 files for \"button.fs-continue, button.fs-back\"\n\n/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/component.css:\n  899  	}\n  900  \n  901: 	button.fs-continue, button.fs-back {\n  902  		right: 20px;\n  903  		bottom: 20px;\n\n1 match in 1 file\n\n\nSearching 2719 files for \"voltar\"\n\n/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/js/fullscreenForm.js:\n  117  		// continue button (jump to next field)\n  118  		this.ctrlContinue = createElement( 'button', { cName : 'fs-continue', inner : 'CONTINUAR', appendTo : this.ctrls } );\n  119: 		this.ctrlBack = createElement( 'button', { cName : 'fs-back', inner : 'VOLTAR', appendTo : this.ctrls } );\n  120  \n  121  		// navigation dots\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 1225,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/js/fullscreenForm.js",
+			"settings":
+			{
+				"buffer_size": 19263,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/component.css",
+			"settings":
+			{
+				"buffer_size": 21926,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/relatorio.css",
+			"settings":
+			{
+				"buffer_size": 10219,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel",
+		"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public",
+		"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css",
+		"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/src",
+		"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/src/settings.php",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/arquitetura/autuacao.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/politicas/testes.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/politicas/codigo-limpo.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/politicas/api.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/iniciando/montagem.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/iniciando/demonstracao.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/iniciando/comece-agora.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/index.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/arquitetura/visao.html",
+		"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital/arquitetura/estrategia.html",
+		"/Users/leandrorezende/Projects/bxblue/bxbank_simulator/app/assets/stylesheets/partials/_generic.scss",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/vendor/assets/bower_components/foundation-sites/dist/foundation-flex.css",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/app/views/application/simulator.html.erb",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/app/views/application/_simulator.html.erb",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/app/views/layouts/application.html.erb",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/app/assets/stylesheets/partials/_settings.scss",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/app/assets/stylesheets/partials/_hacks.scss",
+		"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator/app/views/application/index.html.erb",
+		"/Users/leandrorezende/Desktop/teste.xml",
+		"/Applications/MAMP/htdocs/iel/formulario/inovacaoiel/mapabrasil/assets/js/brazil.js",
+		"/Applications/MAMP/htdocs/iel/formulario/inovacaoiel/mapabrasil/index.html",
+		"/Applications/MAMP/htdocs/iel/iel-form/css/component.css",
+		"/Applications/MAMP/htdocs/iel/formulario/inovacaoiel/index.html",
+		"/Applications/MAMP/htdocs/iel/formulario/inovacaoiel/README.md",
+		"/Applications/MAMP/htdocs/iel/formulario/inovacaoiel/js/fullscreenForm.js",
+		"/Users/leandrorezende/Projects/iel.sublime-project",
+		"/Applications/MAMP/htdocs/iel/iel-form/js/fullscreenForm.js",
+		"/Applications/MAMP/htdocs/iel/iel-form/css/demo.css",
+		"/Applications/MAMP/htdocs/iel/iel-form/index.html",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/index.html",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/scss/partials/_hacks.scss",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/scss/partials/_components.scss",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/student-create-account.html",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/student-home.html",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/scss/partials/_generic.scss",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/student-login.html",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/teacher-create-account.html",
+		"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/dist/teacher-create-account.html",
+		"/Users/leandrorezende/Desktop/cursocss/ex16_animacao3d.html",
+		"/Users/leandrorezende/Projects/youstrive/.gitignore"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel",
+			"/Users/leandrorezende/Projects/STF/produto/documentacao/stfdigital",
+			"/Users/leandrorezende/Projects/bxblue/bxbank_simulator/app/assets/stylesheets/partials",
+			"/Users/leandrorezende/Projects/bxblue/bxbank_simulator",
+			"/Applications/MAMP/htdocs/bxblue/code/bxbank_simulator",
+			"/Applications/MAMP/htdocs/iel/formulario/inovacaoiel",
+			"/Applications/MAMP/htdocs/iel/iel-form",
+			"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src",
+			"/Users/leandrorezende/Projects/northshield/you-strive-styleguide",
+			"/Users/leandrorezende/Projects/northshield/you-strive-styleguide/src/scss"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"Você prioriza atualmente",
+			"maior escore",
+			"fs-back",
+			"fs-back::befor",
+			"media",
+			"button.fs-back::before",
+			"button.fs-back",
+			"Continue",
+			"continue",
+			"Continue",
+			"continue",
+			"before",
+			"button.fs-back::before",
+			"voltar",
+			"button.fs-back::before",
+			"before",
+			"button.fs-back::before",
+			"fs-continue",
+			"fs-continue::before",
+			"fs-continue",
+			"button.fs-continue, button.fs-back",
+			"voltar",
+			"body",
+			"mock-04",
+			"img/iel/mock-04.png",
+			"medium-12 small-order-1 large-4",
+			"small-12 medium-12 small-order-1 large-4",
+			"small-12 medium-12 small-order-1 large-5",
+			"small-12 medium-12 small-order-3 large-4",
+			"small-12 medium-12 small-order-3 ",
+			"small-12 medium-4 medium-order-1",
+			"small-12 medium-4 medium-order-1 small-order-2 large-4 large-order-2 columns text-center",
+			"graph",
+			"graph-percentage show-for-medium",
+			"show-for-medium",
+			"Análise da capacidade de inovação",
+			"solutions-graph",
+			"hide-for-small-only",
+			"#solutions-graph",
+			"solutions-graph",
+			"small-8 large-5 medium-offset-2 medium-6 columns",
+			"small-8 large-5",
+			"small-8 large-5 medium-6 columns",
+			"solutions-graph",
+			"\n}",
+			"small-order-2 large-4 large-order-2 columns text-center\">\n                  <div class=\"graph-outer\">\n                    <div class=\"graph-inner\">",
+			"mall-order-2 large-3 large-order-3 columns graph-percentage show-for-medium\">\n                  <span class=\"graph-percentage-lab",
+			"small-6 large-6",
+			"medium-2 small-order-2",
+			"medium-6 small-order-3",
+			"medium-4 small-order-1 ",
+			"small-6 small-order-1",
+			"small-3 small-order-3",
+			"small-6 small-order-3 ",
+			"small-4 small-order-1",
+			"small-2 small-order-2",
+			"columns graph-percentage",
+			"graph-percentage",
+			"percentage-label hide-for-small-only",
+			"columns graph-percentage",
+			"hide-for-small-only",
+			"6",
+			"graph-title",
+			"small-7 large-7 columns",
+			"graph-percentage-label",
+			"small-12 large-6",
+			"progress-icon",
+			"progress-icon with-border\"",
+			"progress-title\"",
+			"progress-title",
+			"progresses",
+			".progress-label",
+			"progress",
+			"progress-title",
+			"progress-label",
+			"progress-title",
+			".progress-title {\n  text-align:center;\n  margin-top:0px;\n}\n.progress-bar {\n  padding: 10px 15px 10px 0;\n}\n\n.progress-label {\n    padding-right: 0px;\n    width: 100% !important;\n    text-align: center;\n    font-size:0.8rem;\n} /* max-width 640px, mobile-only styles, use when QAing mobile issues */",
+			"small-8 large-7 columns",
+			"large-7 columns",
+			"large-5 columns progress-title",
+			"progress-label",
+			"class=\"medium-8 large-8 small-12 columns\"",
+			".progress-bar",
+			"small-4",
+			"small-8 large-7 columns",
+			"solutions-graph",
+			"12",
+			"medium",
+			"-only",
+			"hide-for",
+			"hide-for-small",
+			"h3",
+			"www.iel.org.br/gestaodainovacao",
+			"screen and (min-width: 40em)",
+			"#solutions-title",
+			"large-offset-1",
+			"<div class=\"small-1 large-1 columns sidebar show-for-large\"></div>",
+			"small-1 large-1 columns sidebar show-for-large",
+			"etos?",
+			"13",
+			".fs-fields > li .fs-radio",
+			".fs-fields > li .fs-radio-custom span",
+			"fs-radio-group",
+			"content-container fs-anim-lower\"",
+			"content-container fs-anim-lower",
+			"content-container",
+			"40px",
+			"7</span><br/><span class=\"subtitle\">",
+			">7<",
+			"7</span><br><span class=\"subtitle\">",
+			"estab",
+			"estabeleci",
+			".fs-progress",
+			".fs-numbers",
+			"gestão da i",
+			"maturidade",
+			"<<<",
+			"href=\"https://github.com/supremotribunalfederal/stfdigital\"",
+			"https://play.google.com/apps/publish/",
+			"url",
+			"p-form",
+			"white_logo",
+			"22px",
+			"Ao submeter este",
+			"nós nos preocupamos",
+			"m-b-15-small",
+			"3rem",
+			"roboto"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"href=\"https://github.com/supremotribunalfederal/stfdigital\" target=\"_blank\" ",
+			"https://github.com/supremotribunalfederal/stfdigital",
+			"progress from the "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates/index.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 53896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15436,
+								15439
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3608.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "settings.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1455,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1444,
+								808
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates/relatorio-nao-encontrado.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1415,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								814,
+								814
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/templates/relatorio.phtml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7261,
+								7261
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/demo.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 777,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1225,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										381,
+										387
+									],
+									[
+										650,
+										684
+									],
+									[
+										1134,
+										1140
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1138,
+								1138
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ 	].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 375.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/js/fullscreenForm.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2604,
+								2612
+							],
+							[
+								2710,
+								2702
+							],
+							[
+								4664,
+								4672
+							],
+							[
+								4995,
+								5003
+							],
+							[
+								8344,
+								8352
+							],
+							[
+								8391,
+								8399
+							],
+							[
+								8450,
+								8458
+							],
+							[
+								8500,
+								8508
+							],
+							[
+								9060,
+								9068
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1426.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/component.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21926,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13863,
+								13863
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 10238.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Applications/MAMP/htdocs/iel/formulario/entrega/inovacaoiel/public/css/relatorio.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "inovacaoielentrega.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"compone",
+				"public/css/component.css"
+			],
+			[
+				"partials",
+				"app/assets/stylesheets/partials/_settings.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 273.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
