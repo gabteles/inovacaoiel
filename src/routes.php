@@ -43,7 +43,7 @@ $app->post('/contador', function($request, $response, $args) {
     ob_end_clean();
     return $this->renderer->render($response, 'contador.phtml', [
       'referer' => $parsedBody['q22'],
-      'shareUrl' => siteURL();
+      'shareUrl' => siteURL()
     ]);
   } else {
     return $response->withHeader('Location', "/");
