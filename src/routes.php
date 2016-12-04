@@ -15,6 +15,12 @@ $app->get('/', function ($request, $response, $args) {
 });
 
 /*----------------------------------------------------------------------------*
+ *----------------------------------------------------------------------------*/
+$app->get('/contador', function($request, $response, $args) {
+  return $this->renderer->render($response, 'contador.phtml');
+});
+
+/*----------------------------------------------------------------------------*
  * Report route. Shows report to an form submission.                          *
  *----------------------------------------------------------------------------*/
 $app->get('/relatorio[/{url}]', function($request, $response, $args) {
@@ -157,7 +163,6 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     'contacts' => $contacts
   ]);
 });
-
 
 /*----------------------------------------------------------------------------*
  * Form submission route.                                                     *

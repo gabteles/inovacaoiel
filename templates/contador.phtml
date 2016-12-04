@@ -1,0 +1,97 @@
+<?php
+  $shareUrl = "http://inovacaoiel.herokuapp.com";
+?>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi, user-scalable=no">
+    <title>Pesquisa de Inovação IEL</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/foundation.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/css/contador.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+    <script src="/js/modernizr.custom.js"></script>
+  </head>
+
+  <body>
+    <div class="social-share-buttons">
+      <a class="facebook button" target="_new" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($shareUrl); ?>"></a>
+      <a class="linkedin button" target="_new" href="https://www.linkedin.com/cws/share?url=<?php echo urlencode($shareUrl); ?>"></a>
+    </div>
+
+    <div class="container" style="height:100%;">
+      <header>
+        <div class="row align-center text-center">
+          <div class="columns">
+            <img src="/img/iel/relatorio/logo.png" id="logo-medium" class="show-for-medium" style="max-height: 110px"/>
+            <img src="/img/iel/logo-inovacao.png" id="logo-small-only" class="show-for-small-only " />
+          </div>
+          <div class="small-12 large-10 medium-10 columns text-left text-center-mobile">
+            <h2 class="semi-bold">Conheça seu nível de capacidade em gestão da inovação!</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-10 small-offset-2 medium-12 medium-offset-0 columns congratulations">
+            <h4>
+              <span class="semi-bold">Parabéns!</span> Você concluiu sua auto-avaliação de Capacidade
+              de Gestão da Inovação. Seu relatório completo está esperando por você no seu e-mail.
+            </h4>
+          </div>
+        </div>
+      </header>
+
+      <main class="row" data-equalizer>
+        <div class="small-10 small-offset-2 medium-6 medium-offset-0 columns">
+          <div class="share-modal" data-equalizer-watch>
+            <p class="semi-bold">
+              Pensou em alguém que gostaria de responder esse formulário?
+            </p>
+
+            <form>
+              <input class="fs-fields" name="nome" type="text" required placeholder="Nome" />
+              <input class="fs-fields" name="email" type="email" required placeholder="Email" />
+
+              <input class="submit-primary" type="submit" value="Enviar Convite"/>
+            </form>
+          </div>
+        </div>
+        <div class="small-10 small-offset-2 medium-6 medium-offset-0 columns text-center" data-equalizer-watch>
+          <div class="graph-container">
+            <div class="graph" data-progress="30">
+            </div>
+            <div class="graph-label" id="countdown-container">
+              <span class="graph-label-text" id="countdown-text">30</span>
+            </div>
+          </div>
+
+          <div class="graph-legend">
+            <p>Esse formulário será reiniciado em instantes.</p>
+            <!-- TODO: Change here to URL that sends results to countdown -->
+            <a href="/" class="submit-secondary" id="restart-button">
+              Reiniciar Agora
+            </a>
+          </div>
+        </div>
+      </main>
+
+      <footer class="row text-center">
+        <div class="small-12 columns conngratulations">
+          <img src="/img/iel/logo-iel.png"/>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery.js"></script>
+    <script type="text/javascript" src="/js/vendor/what-input.js"></script>
+    <script type="text/javascript" src="/js/vendor/foundation.min.js"></script>
+    <script src="/js/progressbar.js"></script>
+    <script src="/js/contador.js"></script>
+  </body>
+</html>
