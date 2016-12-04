@@ -42,7 +42,8 @@ $app->post('/contador', function($request, $response, $args) {
     // Redirect to report URL
     ob_end_clean();
     return $this->renderer->render($response, 'contador.phtml', [
-      'referer' => $parsedBody['q22']
+      'referer' => $parsedBody['q22'],
+      'shareUrl' => siteURL();
     ]);
   } else {
     return $response->withHeader('Location', "/");
