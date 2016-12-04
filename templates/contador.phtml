@@ -52,9 +52,10 @@
               Pensou em alguém que gostaria de responder esse formulário?
             </p>
 
-            <form>
-              <input class="fs-fields" name="nome" type="text" required placeholder="Nome" />
+            <form action="/share" method="post" id="share-form">
+              <input class="fs-fields" name="name" type="text" required placeholder="Nome" />
               <input class="fs-fields" name="email" type="email" required placeholder="Email" />
+              <input name="referer" type="hidden" value="<?php echo htmlspecialchars($referer) ?>" />
 
               <input class="submit-primary" type="submit" value="Enviar Convite"/>
             </form>
@@ -71,8 +72,7 @@
 
           <div class="graph-legend">
             <p>Esse formulário será reiniciado em instantes.</p>
-            <!-- TODO: Change here to URL that sends results to countdown -->
-            <a href="/" class="submit-secondary" id="restart-button">
+            <a href="/contador" class="submit-secondary" id="restart-button">
               Reiniciar Agora
             </a>
           </div>

@@ -11,13 +11,65 @@ require __DIR__ . '/models/report_contact.php';
  *----------------------------------------------------------------------------*/
 
 $app->get('/', function ($request, $response, $args) {
-  return $this->renderer->render($response, 'index.phtml');
+  return $this->renderer->render($response, 'index.phtml', [
+    'showShareCounter' => false
+  ]);
 });
 
 /*----------------------------------------------------------------------------*
  *----------------------------------------------------------------------------*/
 $app->get('/contador', function($request, $response, $args) {
-  return $this->renderer->render($response, 'contador.phtml');
+  return $this->renderer->render($response, 'index.phtml', [
+    'showShareCounter' => true
+  ]);
+});
+
+/*----------------------------------------------------------------------------*
+ *----------------------------------------------------------------------------*/
+$app->post('/contador', function($request, $response, $args) {
+  // Get request body
+  $parsedBody = $request->getParsedBody();
+
+  $formUrl = processForm(
+    $this->db,
+    $this->logger,
+    $this->renderer,
+    $this->mailer,
+    $parsedBody
+  );
+
+  if ($formUrl) {
+    // Redirect to report URL
+    ob_end_clean();
+    return $this->renderer->render($response, 'contador.phtml', [
+      'referer' => $parsedBody['q22']
+    ]);
+  } else {
+    return $response->withHeader('Location', "/");
+  }
+});
+
+
+/*----------------------------------------------------------------------------*
+ *----------------------------------------------------------------------------*/
+$app->post('/share', function($request, $response, $args) {
+  $parsedBody = $request->getParsedBody();
+
+  sendEmailTo(
+    $this->renderer,
+    $this->mailer,
+    $this->logger,
+    $parsedBody['email'],
+    $parsedBody['name'],
+    'Conheça seu nível de maturidade em gestão da inovação',
+    'template-email-share.phtml', [
+      'name' => $parsedBody['name'],
+      'referer' => htmlspecialchars_decode($parsedBody['referer']),
+      'shareUrl' => siteURL()
+    ]
+  );
+
+  return $response->withHeader('Location', '/contador');
 });
 
 /*----------------------------------------------------------------------------*
@@ -171,8 +223,28 @@ $app->post('/relatorio', function ($request, $response, $args) {
   // Get request body
   $parsedBody = $request->getParsedBody();
 
+  $formUrl = processForm(
+    $this->db,
+    $this->logger,
+    $this->renderer,
+    $this->mailer,
+    $parsedBody
+  );
+
+  if ($formUrl) {
+    // Redirect to report URL
+    return $response
+      ->withStatus(302)
+      ->withHeader('Location', "/relatorio/{$formUrl}");
+  } else {
+    return $response->withHeader('Location', "/");
+  }
+});
+
+
+function processForm($db, $logger, $renderer, $mailer, $parsedBody) {
   // Initialize transaction
-  $this->db->beginTransaction();
+  $db->beginTransaction();
 
   // Create form entity
   $form = Model::factory('FormSubmit')->create();
@@ -186,10 +258,10 @@ $app->post('/relatorio', function ($request, $response, $args) {
 
     // Error if the response
     if (!isset($parsedBody[$fieldName])) {
-      $this->db->rollBack();
+      $db->rollBack();
       $errorArgs = [];
-      $this->logger->error("Erro ao processar questão $i");
-      return $this->renderer->render($response, 'index.phtml', $errorArgs);
+      $logger->error("Erro ao processar questão $i");
+      return false;
     }
 
     // Create response to this question
@@ -201,34 +273,32 @@ $app->post('/relatorio', function ($request, $response, $args) {
   }
 
   // Commit
-  $this->db->commit();
+  $db->commit();
 
   // Send user email
   $userName = $parsedBody['q22'];
   $userEmail = $parsedBody['q23'];
   $state = $parsedBody['q24'];
   $basePath = siteURL();
-  $emailBody = $this->renderer->fetch('template-email.phtml', [
-    'name' => $userName,
-    'formUrl' => "{$basePath}/relatorio/{$form->url}"
-  ]);
 
-  $mailer = call_user_func($this->mailer);
-  $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-email.png', 'logo-email', 'logo-email.png');
-  $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-iel.png', 'logo-iel', 'logo-iel.png');
-  $mailer->addAddress($userEmail, $userName);
-  $mailer->Subject = 'Conheça seu nível de maturidade em gestão da inovação';
-  $mailer->Body = $emailBody;
-
-  $this->logger->debug("Enviando email para: {$userEmail} ({$userName})");
-  if (!$mailer->send()) {
-    $this->logger->error("Erro ao enviar email: {$mailer->ErrorInfo}");
-  }
+  sendEmailTo(
+    $renderer,
+    $mailer,
+    $logger,
+    $userEmail,
+    $userName,
+    'Conheça seu nível de maturidade em gestão da inovação',
+    'template-email.phtml', [
+      'name' => $userName,
+      'formUrl' => "{$basePath}/relatorio/{$form->url}"
+    ]
+  );
 
   // Send consultor email
   $contacts = Model::factory('ReportContact')
     ->where('uf', $state)
     ->find_many();
+  $contacts = null;
 
   if ($contacts && $contacts != null && !empty($contacts)) {
     $userCompany = $parsedBody['q21'];
@@ -236,33 +306,26 @@ $app->post('/relatorio', function ($request, $response, $args) {
     $userPhone = $parsedBody['q26'];
 
     foreach ($contacts as $contact) {
-      $emailBody = $this->renderer->fetch('template-email-interno.phtml', [
-        'name' => $contact->name,
-        'state' => $state,
-        'userName' => $userName,
-        'userEmail' => $userEmail,
-        'userCompany' => $userCompany,
-        'userCity' => $userCity,
-        'userPhone' => $userPhone,
-        'formUrl' => "{$basePath}/relatorio/{$form->url}"
-      ]);
-
-      $mailer = call_user_func($this->mailer);
-      $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-email.png', 'logo-email', 'logo-email.png');
-      $mailer->addEmbeddedImage(__DIR__ . '/../public/img/iel/logo-iel.png', 'logo-iel', 'logo-iel.png');
-      $mailer->addAddress($contact->email, $contact->name);
-      $mailer->Subject = 'Novo relatório de capacidade de gestão da inovação';
-      $mailer->Body = $emailBody;
-
-      $this->logger->debug("Enviando email para: {$contact->email} ({$contact->name})");
-      if (!$mailer->send()) {
-        $this->logger->error("Erro ao enviar email: {$mailer->ErrorInfo}");
-      }
+      sendEmailTo(
+        $renderer,
+        $mailer,
+        $logger,
+        $contact->email,
+        $contact->name,
+        'Novo relatório de capacidade de gestão da inovação',
+        'template-email-interno.phtml', [
+          'name' => $contact->name,
+          'state' => $state,
+          'userName' => $userName,
+          'userEmail' => $userEmail,
+          'userCompany' => $userCompany,
+          'userCity' => $userCity,
+          'userPhone' => $userPhone,
+          'formUrl' => "{$basePath}/relatorio/{$form->url}"
+        ]
+      );
     }
   }
 
-  // Redirect to report URL
-  return $response
-    ->withStatus(302)
-    ->withHeader('Location', "/relatorio/{$form->url}");
-});
+  return $form->url;
+}

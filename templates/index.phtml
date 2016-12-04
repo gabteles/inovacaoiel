@@ -8,7 +8,8 @@
   <meta property="og:title" content="Sua empresa é realmente inovadora?" />
 	<meta property="og:description" content="IEL disponibiliza ferramenta para avaliar a capacidade de inovação de sua empresa. Acesse e descubra o seu nível!" />
   <meta property="og:url" content="http://inovacaoiel.herokuapp.com/" />
-	<meta property="og:image" content="http://inovacaoiel.herokuapp.com/img/iel/opengraph6.jpg" />
+  <meta property="og:image" content="http://inovacaoiel.herokuapp.com/img/iel/opengraph6.jpg" />
+	<meta property="og:type" content="website" />
 
   <title>Gestão da Inovação - IEL</title>
 
@@ -24,7 +25,7 @@
 
     <div class="fs-form-wrap" id="fs-form-wrap">
       <img src="img/iel/logo-inovacao.png" style="margin-top:20px; margin-left:20px; margin-bottom: 13px">
-      <form id="main-form" class="fs-form fs-form-full ac-fill" action="/relatorio" method="POST" autocomplete="off">
+      <form id="main-form" class="fs-form fs-form-full ac-fill" action="<?php echo ($showShareCounter ? '/contador' : '/relatorio'); ?>" method="POST" autocomplete="off">
         <ol class="fs-fields">
           <li data-input-trigger data-hide-last-button data-hide-next-button>
             <div class="field-title fs-anim-upper">

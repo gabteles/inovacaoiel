@@ -4,6 +4,11 @@
     $(document).foundation();
   });
 
+  var sentShareForm = false;
+  $("#share-form").submit(function() {
+    sentShareForm = true;
+  });
+
   [].slice.call(document.querySelectorAll('[data-progress]')).forEach(function(container) {
     var countdownText = $("#countdown-text");
     var graphLabel = $("#countdown-container");
@@ -36,7 +41,9 @@
       if (remainingSteps == 0) {
         clearInterval(interval);
         graphLabel.css('background', '#EE9770');
-        //window.location.href = restartButton.attr('href');
+        if (!sentShareForm) {
+          window.location.href = restartButton.attr('href');
+        }
       }
     }, 1000);
   });
