@@ -1,5 +1,5 @@
 .container {
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 header {
@@ -98,4 +98,10 @@ input::-webkit-input-placeholder {
 footer {
   margin-top: 40px;
   padding-bottom: 10px;
+}
+
+@media (max-width: 40em) {
+  .graph-container {
+    margin-top: 30px;
+  }
 }
