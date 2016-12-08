@@ -45,3 +45,38 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
 }
+
+.social-share-buttons {
+  background-color: #fff;
+  border-radius: 0 6px 6px 0;
+  padding: 4px;
+  position: fixed;
+  z-index: 9999995;
+  left: 0px;
+  top: 150px;
+  line-height: 32px;
+  width: 32px;
+  box-sizing: content-box;
+}
+
+.social-share-buttons .button {
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  width: 32px;
+  margin-bottom: 3px;
+}
+
+.social-share-buttons .button:last-child {
+  margin-bottom: 0px;
+}
+
+.social-share-buttons .button.facebook {
+  background-color: rgb(59, 89, 152);
+  background-image: url(../img/iel/contador/facebook.svg);
+}
+
+.social-share-buttons .button.linkedin {
+  background-color: #007BB5;
+  background-image: url(../img/iel/contador/linkedin.svg);
+}
