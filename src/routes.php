@@ -98,7 +98,7 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 
   $responses = [];
 
-  for ($i = 4; $i <= 20; $i++) {
+  for ($i = 4; $i <= 22; $i++) {
     $responses[$i] = $form->responses()->where('question_number', $i)->findOne()->response;
   }
 
@@ -213,7 +213,9 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
     'innovativenessScores' => $innovativenessScores,
     'highestInnovativenessScoreIndex' => $highestInnovativenessScoreIndex,
 
-    'contacts' => $contacts
+    'contacts' => $contacts,
+
+    'referer' => $responses[22]
   ]);
 });
 

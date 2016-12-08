@@ -18,4 +18,27 @@
     bar.animate(progress);
   });
 
+  $("#share-email").click(function() {
+    $("#share-modal").toggle()
+  });
+
+  $("#share-form").submit(function(e) {
+    e.preventDefault();
+
+    $("#share-form-container").toggle();
+    $("#share-form-load").toggle();
+
+    $.ajax({
+      url: '/share',
+      type: 'POST',
+      data: $(this).serialize()
+    }).always(function() {
+      $("#share-form-email-sent").toggle().delay(2000).slideUp();
+      $(".share-email-field").val('');
+      $("#share-form-container").toggle();
+      $("#share-form-load").toggle();
+    });
+  });
+
+
 })();

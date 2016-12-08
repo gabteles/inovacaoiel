@@ -2,6 +2,51 @@ body {
     line-height: 140%;
 }
 
+.share-modal {
+  background-color: rgba(12, 114, 142, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  position: fixed;
+  max-width: calc(100% - 94px);
+  left: 47px;
+  z-index: 9;
+  top: 150px;
+  transform: translateY(-25%);
+}
+
+.share-modal input.fs-fields, input.fs-fields:focus {
+  display: block;
+  margin: 10px 0 20px;
+  padding: 0.15em;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.2);
+  box-shadow: none;
+  background-color: transparent;
+  color: #fffed8;
+  text-overflow: ellipsis;
+  font-size: 1.5em;
+  border-radius: 0;
+}
+
+.share-modal input.submit-primary {
+  background: #EE9770;
+  border: none;
+  border-radius: 0;
+  color: white;
+  display: block;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 40px auto 0;
+  padding: 10px 20px;
+}
+
+.share-modal #share-form-load img {
+  width: 100%;
+  margin: auto;
+  display: block;
+}
+
 .light-background {
   /*background: rgba(96, 170, 182, 0.64);*/
 }
@@ -417,6 +462,10 @@ body {
 @media only screen { } /* Define mobile styles */
 
 @media  (max-width: 40em) {
+  .share-modal {
+    max-width: calc(100% - 52px);
+  }
+
   .text-justify-mobile {
     text-align: justify;
   }

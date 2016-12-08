@@ -80,3 +80,8 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #007BB5;
   background-image: url(../img/iel/contador/linkedin.svg);
 }
+
+.social-share-buttons .button.email {
+  background-color: #0166FF;
+  background-image: url(../img/iel/contador/email.svg);
+}

@@ -41,6 +41,31 @@
     <div class="social-share-buttons">
       <a class="facebook button" target="_new" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(siteUrl()); ?>"></a>
       <a class="linkedin button" target="_new" href="https://www.linkedin.com/cws/share?url=<?php echo urlencode(siteUrl()); ?>"></a>
+      <a class="email button" id="share-email" href="#"></a>
+    </div>
+
+    <div class="share-modal" id="share-modal" style="display: none" data-equalizer-watch>
+      <div id="share-form-container">
+        <div id="share-form-email-sent" style="display: none; margin-bottom: 5px">
+          <strong>Indicação enviada!</strong>
+        </div>
+
+        <p class="semi-bold">
+          Pensou em alguém que gostaria de responder esse formulário?
+        </p>
+
+        <form id="share-form">
+          <input name="name" class="fs-fields share-email-field" type="text" required placeholder="Nome" />
+          <input name="email" class="fs-fields share-email-field" type="email" required placeholder="Email" />
+          <input name="referer" type="hidden" value="<?php echo htmlspecialchars($referer) ?>" />
+
+          <input class="submit-primary" type="submit" value="Enviar Convite"/>
+        </form>
+      </div>
+
+      <div id="share-form-load" style="display: none">
+        <img src="/img/iel/loader.svg">
+      </div>
     </div>
 
     <div class="container">
