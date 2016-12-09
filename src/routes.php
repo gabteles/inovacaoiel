@@ -25,15 +25,6 @@ $app->get('/contador', function($request, $response, $args) {
 });
 /*----------------------------------------------------------------------------*
  *----------------------------------------------------------------------------*/
-$app->get('/contador2', function($request, $response, $args) {
-  return $this->renderer->render($response, 'contador.phtml', [
-      'referer' => "",
-      'shareUrl' => siteURL()
-    ]);
-});
-
-/*----------------------------------------------------------------------------*
- *----------------------------------------------------------------------------*/
 $app->post('/contador', function($request, $response, $args) {
   // Get request body
   $parsedBody = $request->getParsedBody();
