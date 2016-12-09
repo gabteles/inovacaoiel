@@ -79,6 +79,7 @@ input.submit-primary {
 }
 
 a.submit-secondary {
+  background: #005379;
   border: none;
   border-radius: 0;
   color: white;

@@ -42,7 +42,7 @@
         clearInterval(interval);
         graphLabel.css('background', '#EE9770');
         if (!sentShareForm) {
-          //window.location.href = restartButton.attr('href');
+          window.location.href = restartButton.attr('href');
         }
       }
     }, 1000);
