@@ -57,7 +57,6 @@ input.submit-primary {
 
 .graph-label {
   border-radius: 50%;
-  background: #077C93;
   width: 85%;
   height: 85%;
   position: absolute;
@@ -71,7 +70,7 @@ input.submit-primary {
 .graph-label-text {
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 47.5%;
   transform: translate(-50%, -50%);
 }
 
@@ -80,7 +79,6 @@ input.submit-primary {
 }
 
 a.submit-secondary {
-  background: #005379;
   border: none;
   border-radius: 0;
   color: white;

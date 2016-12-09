@@ -18,7 +18,7 @@
     var progress = 1;
 
     var bar = new ProgressBar.Circle(container, {
-      strokeWidth: 50,
+      strokeWidth: 8,
       easing: 'easeInOut',
       duration: 500,
       color: '#FFFFFF',
@@ -42,7 +42,7 @@
         clearInterval(interval);
         graphLabel.css('background', '#EE9770');
         if (!sentShareForm) {
-          window.location.href = restartButton.attr('href');
+          //window.location.href = restartButton.attr('href');
         }
       }
     }, 1000);
