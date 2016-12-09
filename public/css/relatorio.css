@@ -152,10 +152,11 @@ body {
   display: block;
   font-size: 0.75em;
   line-height: 1.2em;
+  margin-top: 8px;
 }
 
 .innovativeness-description + img {
-  margin-top: 15px;
+  margin-top: 48px;
 }
 
 .graph-container {
@@ -449,7 +450,7 @@ body {
   width: 30px;
   height: 30px;
   position: absolute;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 0%);
   z-index: 1;
   background: url("../img/iel/relatorio/map_pin_fill-512.png");
   background-size: contain;
