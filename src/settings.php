@@ -29,16 +29,16 @@ return [
             'debug' => 'true',
 
             // SMTP settings. Fill if using 'type' => 'smtp'
-            'host' => 'smtp-mail.outlook.com',
+            'host' => 'smtp.gmail.com',
             'smtp-auth' => true,
-            'username' => 'inovacaoiel@outlook.com.br',
-            'password' => 'inovacao.iel',
+            'username' => 'gestaodainovacao@cni.org.br',
+            'password' => 'Gi_iel16',
             'smtp-secure' => 'tls',
             'port' => 587,
 
-            'mail-from' => 'inovacaoiel@outlook.com.br',
+            'mail-from' => 'gestaodainovacao@cni.org.br',
             'mail-from-name' => 'Inovação IEL',
-            'reply-to' => 'inovacaoiel@outlook.com.br',
+            'reply-to' => 'gestaodainovacao@cni.org.br',
             'reply-to-name' => 'Inovação IEL'
         ]
     ],

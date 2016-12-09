@@ -300,7 +300,6 @@ function processForm($db, $logger, $renderer, $mailer, $parsedBody) {
   $contacts = Model::factory('ReportContact')
     ->where('uf', $state)
     ->find_many();
-  $contacts = null;
 
   if ($contacts && $contacts != null && !empty($contacts)) {
     $userCompany = $parsedBody['q21'];
