@@ -11,3 +11,12 @@ dba:
     - '8080:80'
   links:
     - database:db
+
+php:
+  build: .
+  ports:
+    - '10000:10000'
+  links:
+    - database:db
+  volumes:
+    - ./:/app
