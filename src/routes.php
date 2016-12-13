@@ -41,7 +41,9 @@ $app->post('/contador', function($request, $response, $args) {
     // Redirect to report URL
     ob_end_clean();
     return $this->renderer->render($response, 'contador.phtml', [
+      'companySize' => $parsedBody['q3'],
       'referer' => $parsedBody['q22'],
+      'state' => $parsedBody['q24'],
       'shareUrl' => siteURL()
     ]);
   } else {
@@ -97,7 +99,7 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 
   $responses = [];
 
-  for ($i = 4; $i <= 22; $i++) {
+  for ($i = 3; $i <= 24; $i++) {
     $responses[$i] = $form->responses()->where('question_number', $i)->findOne()->response;
   }
 
@@ -214,7 +216,9 @@ $app->get('/relatorio[/{url}]', function($request, $response, $args) {
 
     'contacts' => $contacts,
 
-    'referer' => $responses[22]
+    'companySize' => $responses[3],
+    'referer' => $responses[22],
+    'state' => $responses[24]
   ]);
 });
 
@@ -300,7 +304,7 @@ function processForm($db, $logger, $renderer, $mailer, $parsedBody) {
   $contacts = Model::factory('ReportContact')
     ->where('uf', $state)
     ->find_many();
-
+    
   if ($contacts && $contacts != null && !empty($contacts)) {
     $userCompany = $parsedBody['q21'];
     $userCity = $parsedBody['q25'];

@@ -7,6 +7,17 @@
   var sentShareForm = false;
   $("#share-form").submit(function() {
     sentShareForm = true;
+    var state = $this.attr('data-state');
+    var companySize = $this.attr('data-company-size')
+    mixpanel.track('compartilhamento', {canal: 'email', estado: state, porte: companySize});
+  });
+
+  $("[data-share-channel]").click(function() {
+    $this = $(this);
+    var channel = $this.attr('data-share-channel');
+    var state = $this.attr('data-state');
+    var companySize = $this.attr('data-company-size')
+    mixpanel.track('compartilhamento', {canal: channel, estado: state, porte: companySize});
   });
 
   [].slice.call(document.querySelectorAll('[data-progress]')).forEach(function(container) {

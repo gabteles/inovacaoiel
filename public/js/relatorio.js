@@ -4,6 +4,16 @@
     $(document).foundation();
   });
 
+
+
+  $("[data-share-channel]").click(function() {
+    $this = $(this);
+    var channel = $this.attr('data-share-channel');
+    var state = $this.attr('data-state');
+    var companySize = $this.attr('data-company-size');
+    mixpanel.track('compartilhamento', {canal: channel, estado: state, porte: companySize});
+  });
+
   [].slice.call(document.querySelectorAll('[data-progress]')).forEach(function(container) {
 
     var progress = parseInt(container.getAttribute('data-progress')) / 100.0;
@@ -27,6 +37,10 @@
 
     $("#share-form-container").toggle();
     $("#share-form-load").toggle();
+
+    var state = $this.attr('data-state');
+    var companySize = $this.attr('data-company-size')
+    mixpanel.track('compartilhamento', {canal: 'email', estado: state, porte: companySize});
 
     $.ajax({
       url: '/share',
