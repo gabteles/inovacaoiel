@@ -38,6 +38,7 @@
     $("#share-form-container").toggle();
     $("#share-form-load").toggle();
 
+    var $this = $(this);
     var state = $this.attr('data-state');
     var companySize = $this.attr('data-company-size')
     mixpanel.track('compartilhamento', {canal: 'email', estado: state, porte: companySize});

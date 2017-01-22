@@ -86,6 +86,7 @@
 
 		// current field position
 		this.current = 0;
+		this.currentQuestion = 1;
 
 		// all fields
 		this.fields = [].slice.call( this.fieldsList.children );
@@ -270,11 +271,29 @@
 		// also add class "fs-show" to the next field and the class "fs-hide" to the current one
 		classie.remove( currentFld, 'fs-current' );
 		classie.add( currentFld, 'fs-hide' );
-		
+
 		if (currentFld.hasAttribute('data-question')) {
 			var timestamp = Math.floor(Date.now() / 1000);
 			var timeToAnswer = (timestamp - this.questionResponseTime);
-			mixpanel.track("respondeu-questao", {tempo: timeToAnswer});
+			mixpanel.track("respondeu-questao", {questao: this.currentQuestion, tempo: timeToAnswer});
+			this.currentQuestion++;
+		}
+
+		if (currentFld.hasAttribute('data-company-size-question')) {
+			var fields = currentFld.querySelectorAll('input');
+			for (var i = 0; i < fields.length; i++) {
+				var input = fields[i];
+				if (input.checked) {
+					mixpanel.track('respondeu-porte', { porte: i });
+					break;
+				}
+			}
+		}
+
+		if (currentFld.hasAttribute('data-state-question')) {
+			var stateField = currentFld.querySelector('select');
+			var cityField = currentFld.querySelector('input');
+			mixpanel.track('respondeu-estado', { estado: stateField.value, cidade: stateField.value });
 		}
 
 		if( !this.isLastStep ) {
@@ -307,7 +326,7 @@
 			if (nextField.hasAttribute('data-register-event')) {
 				event = nextField.getAttribute('data-register-event');
 				mixpanel.track(event);
-			} 
+			}
 
 			if (nextField.hasAttribute('data-question')) {
 				this.questionResponseTime = Math.floor(Date.now() / 1000);
