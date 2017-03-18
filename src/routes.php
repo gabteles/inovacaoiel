@@ -17,6 +17,86 @@ $app->get('/', function ($request, $response, $args) {
 });
 
 /*----------------------------------------------------------------------------*
+/*----------------------------------------------------------------------------*/
+$app->get('/responses', function($request, $response, $args) {
+  return $this->renderer->render($response, 'responses.phtml');
+});
+
+$app->post('/responses', function($request, $response, $args) {
+  if ($request->getParsedBody()['password'] != $_ENV['APP_EXPORT_PASSWORD']) {
+    return $this->renderer->render($response, 'responses.phtml', [
+      'flashText' => 'Senha incorreta'
+    ]);
+  }
+
+  $sql = "
+    SELECT
+      CONCAT(
+        from_unixtime((SELECT created_at FROM form_submit fs WHERE (fs.id = qr.form_submit_id)), '%d/%m/%Y %h:%i:%s'), \"\t\",
+        GROUP_CONCAT(
+            CASE
+            WHEN question_number IN (1, 3, 4, 5, 6) THEN (
+                SELECT response FROM question_options qo
+                WHERE qo.question_number = qr.question_number AND  qo.option_number = IF(qr.response = 0 AND qr.question_number = 3, 1, qr.response)
+            )
+            WHEN question_number IN (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20) THEN qr.response + 1
+            ELSE qr.response
+            END
+            SEPARATOR \"\t\"
+        )
+      ) AS responseLine
+    FROM question_response qr
+    GROUP BY qr.form_submit_id
+    ORDER BY question_number;
+  ";
+
+  $header = implode("\t", [
+    "Data/Hora",
+    "Categoria",
+    "Localidade de atuação",
+    "Porte",
+    "Prioridade 1",
+    "Prioridade 2",
+    "Prioridade 3",
+    "Questão 7",
+    "Questão 8",
+    "Questão 9",
+    "Questão 10",
+    "Questão 11",
+    "Questão 12",
+    "Questão 13",
+    "Questão 14",
+    "Questão 15",
+    "Questão 16",
+    "Questão 17",
+    "Questão 18",
+    "Questão 19",
+    "Questão 20",
+    "Empresa",
+    "Nome",
+    "Email",
+    "Estado",
+    "Cidade",
+    "Telefone"
+  ]) . "\n";
+
+  $responseStmt = $this->db->query($sql);
+  $responseLines = $responseStmt->fetchAll();
+  $responseBody = $header . implode("\n", array_map(function($r) { return $r['responseLine']; }, $responseLines));
+
+  return $response->withHeader('Content-Type', 'application/force-download')
+                  ->withHeader('Content-Type', 'application/octet-stream')
+                  ->withHeader('Content-Type', 'application/download')
+                  ->withHeader('Content-Description', 'File Transfer')
+                  ->withHeader('Content-Transfer-Encoding', 'binary')
+                  ->withHeader('Content-Disposition', 'attachment; filename="respostas.csv"')
+                  ->withHeader('Expires', '0')
+                  ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
+                  ->withHeader('Pragma', 'public')
+                  ->write($responseBody);
+});
+
+/*----------------------------------------------------------------------------*
  *----------------------------------------------------------------------------*/
 $app->get('/contador', function($request, $response, $args) {
   return $this->renderer->render($response, 'index.phtml', [
@@ -304,7 +384,7 @@ function processForm($db, $logger, $renderer, $mailer, $parsedBody) {
   $contacts = Model::factory('ReportContact')
     ->where('uf', $state)
     ->find_many();
-    
+
   if ($contacts && $contacts != null && !empty($contacts)) {
     $userCompany = $parsedBody['q21'];
     $userCity = $parsedBody['q25'];
