@@ -447,15 +447,48 @@ body {
 
 .general-graph-pointer {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 10px;
+  height: 10px;
   position: absolute;
-  transform: translate(-50%, 0%);
+  transform: translate(-50%, 50%);
   z-index: 1;
-  background: url("../img/iel/relatorio/map_pin_fill-512.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 50%;
+  border-radius: 50%;
+  background: #ee9770;
+  animation-name: graph-pointer-pin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.general-graph-pointer:before {
+  box-sizing: border-box;
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ee9770;
+  border-radius: 50%;
+  display: inline-block;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  animation-name: graph-pointer-aura;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes graph-pointer-aura {
+  0% {
+    width: 50px;
+    height: 50px;
+  }
+  50% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 
