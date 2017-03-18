@@ -722,7 +722,7 @@ body {
 /* Large screens*/
 @media only screen and (min-width: 64.063em) { } /* min-width 1025px, large screens */
 
-@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+@media only screen and (min-width: 64.063em) {
   .container {
     max-width: 960px;
     margin:0 auto;
