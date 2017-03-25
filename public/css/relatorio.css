@@ -164,7 +164,7 @@ body {
 }
 
 .graph-outer {
-  background: rgba(255, 255, 255, 0.5);
+  background: #7fadbe;
   width: 110px;
   height: 110px;
   font-size: 3rem;
@@ -172,6 +172,8 @@ body {
   text-align: center;
   line-height: 100px;
   display: inline-block;
+  position: relative;
+  z-index: 2;
 }
 
 @media  (min-width: 40em) {
@@ -205,6 +207,11 @@ body {
   text-transform: inherit;
   display: table;
   min-height: 110px;
+  padding: 0 0 0 10px;
+}
+
+.text-right .graph-title {
+  padding: 0 10px 0 0;
 }
 
 .graph-title span {
@@ -213,9 +220,7 @@ body {
 }
 
 .graph-percentage {
-  min-height: 110px;
   width: 100%;
-  display: table;
 }
 
 .graph-percentage-label {
@@ -241,18 +246,21 @@ body {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
+  background: #016383;
+  z-index: 2;
 }
 
 .graph-percentage-line {
   position: absolute;
   height: 1px;
-  width: 75%;
-  top: 43px;
-  left: 30px;
+  width: 110%;
+  top: 0px;
+  left: 50%;
+  z-index: 1;
 }
 
 .text-right .graph-percentage-line {
-  right: 30px;
+  right: 50%;
   left: inherit;
 }
 
