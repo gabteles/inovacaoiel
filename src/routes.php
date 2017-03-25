@@ -19,7 +19,7 @@ $app->get('/', function ($request, $response, $args) {
 /*----------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------*/
 $app->get('/admin', function($request, $response, $args) {
-  return $response->withHeader('Location', "/admin");
+  return $response->withHeader('Location', "/admin/login");
 });
 
 $app->get('/admin/login', function($request, $response, $args) {
