@@ -18,15 +18,45 @@ $app->get('/', function ($request, $response, $args) {
 
 /*----------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------*/
-$app->get('/responses', function($request, $response, $args) {
+$app->get('/admin', function($request, $response, $args) {
+  return $response->withHeader('Location', "/admin");
+});
+
+$app->get('/admin/login', function($request, $response, $args) {
+  return $this->renderer->render($response, 'login.phtml');
+});
+
+$app->post('/admin/login', function($request, $response, $args) {
+  $body = $request->getParsedBody();
+
+  if (($body['username'] != $_ENV['APP_ADMIN_USERNAME']) || ($body['password'] != $_ENV['APP_ADMIN_PASSWORD'])) {
+    return $this->renderer->render($response, 'login.phtml', [
+      'flashText' => 'Usuário ou senha incorretos'
+    ]);
+  }
+
+  session_start();
+  $_SESSION['logged_in'] = true;
+
+  return $response->withHeader('Location', "/admin/contacts");
+});
+
+$app->get('/admin/logout', function($request, $response, $args) {
+  session_start();
+  session_unset();
+  session_destroy();
+
+  return $response->withHeader('Location', "/admin/login");
+});
+
+$app->get('/admin/responses', function($request, $response, $args) {
   return $this->renderer->render($response, 'responses.phtml');
 });
 
-$app->post('/responses', function($request, $response, $args) {
-  if ($request->getParsedBody()['password'] != $_ENV['APP_EXPORT_PASSWORD']) {
-    return $this->renderer->render($response, 'responses.phtml', [
-      'flashText' => 'Senha incorreta'
-    ]);
+$app->post('/admin/responses', function($request, $response, $args) {
+  session_start();
+  if (!$_SESSION['logged_in']) {
+    return $response->withHeader('Location', '/admin/login');
   }
 
   $sql = "
@@ -94,6 +124,77 @@ $app->post('/responses', function($request, $response, $args) {
                   ->withHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0')
                   ->withHeader('Pragma', 'public')
                   ->write($responseBody);
+});
+
+/*----------------------------------------------------------------------------*
+ *----------------------------------------------------------------------------*/
+$app->get('/admin/contacts', function($request, $response, $args) {
+  session_start();
+  if (!$_SESSION['logged_in']) {
+    return $response->withHeader('Location', '/admin/login');
+  }
+
+  $this->db;
+
+  $contacts = Model::factory('ReportContact')
+    ->find_many();
+
+  return $this->renderer->render($response, 'contacts.phtml', [
+    'contacts' => $contacts
+  ]);
+});
+
+$app->post('/admin/contacts', function($request, $response, $args) {
+  $body = $request->getParsedBody();
+  $action = $body['action'];
+  $this->db;
+
+  switch ($action) {
+    case 'upsert':
+      if ($body['id']) {
+        $contact = Model::factory('ReportContact')->find_one($body['id']);
+      } else {
+        $contact = Model::factory('ReportContact')->create();
+      }
+
+      $contact->uf = $body['uf'];
+      $contact->name = $body['name'];
+      $contact->phone = $body['phone'];
+      $contact->email = $body['email'];
+
+      $contact->save();
+      return $response->withStatus(200)->write(json_encode([]));
+
+    case 'delete':
+      if (!$body['id']) {
+        return $response
+          ->withStatus(400)
+          ->write(json_encode([
+            'error' => 'Missing ID'
+          ]));
+      }
+
+      $contact = Model::factory('ReportContact')->find_one($body['id']);
+      if ($contact) {
+        $contact->delete();
+        return $response->withStatus(200)->write(json_encode([]));
+      } else {
+        return $response->withStatus(400)->write(json_encode(['error' => 'Could not find contact']));
+      }
+
+      break;
+
+    default:
+      return $response
+        ->withStatus(400)
+        ->write(json_encode([
+          'error' => 'Unsupported action'
+        ]));
+      break;
+  }
+
+
+  return $response->write(json_encode($request->getParsedBody()));
 });
 
 /*----------------------------------------------------------------------------*
