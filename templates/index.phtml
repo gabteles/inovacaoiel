@@ -98,7 +98,7 @@
             </div>
             <div class="content-container fs-anim-lower" style="margin-bottom:80px;">
               <div class="fs-radio-group fs-radio-custom fs-checkbox-group fs-map clearfix">
-                <input type="hidden" name="q2" id="state-selection"/>
+                <input type="hidden" name="q2" id="state-selection" required />
 
                 <div class="show-mobile">
                   <div class="cf">
@@ -673,13 +673,11 @@ mixpanel.init("029119b7e1fa503b52a32d240d8d5b52");</script>
           states += (states.length) ? ',' + state : state;
         } else {
           states = states.replace(state, '');
-          states = states.replace(',' + state, '');
-          states = states.replace(state + ',', '');
         }
 
         mapInput.value = states;
-
-        checkToggleMapAreas()
+        sanitizeMapInputValue();
+        checkToggleMapAreas();
       }
 
       function checkToggleMapAreas() {
@@ -719,20 +717,23 @@ mixpanel.init("029119b7e1fa503b52a32d240d8d5b52");</script>
             if (window.highlightMapArea) {
               window.highlightMapArea(state);
             }
-            element.checked = true
           } else {
-            states = states.replace(',' + state, '');
-            states = states.replace(state + ',', '');
             states = states.replace(state, '');
             if (window.unhighlightMapArea) {
               window.unhighlightMapArea(state);
             }
-            element.checked = false
           }
+          element.checked = checked;
+
         }
 
         mapInput.value = states;
-        checkToggleMapAreas()
+        sanitizeMapInputValue();
+        checkToggleMapAreas();
+      }
+
+      function sanitizeMapInputValue() {
+        mapInput.value = mapInput.value.replace(/,+/g,',').replace(/(^,|,$)/g, '');
       }
 
       new FForm(formWrap, {
